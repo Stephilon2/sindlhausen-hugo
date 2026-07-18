@@ -1,0 +1,4 @@
+baseURL = '/'
+defaultContentLanguage = 'de'
+title = 'Sindlhausen'
+theme = 'blowfish'
