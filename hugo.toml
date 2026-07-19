@@ -2,3 +2,28 @@ baseURL = '/'
 defaultContentLanguage = 'de'
 title = 'Sindlhausen'
 theme = 'blowfish'
+
+[[menu.main]]
+name = "Dahoam"
+pageRef = "/"
+weight = 10
+
+[[menu.main]]
+name = "Chronik"
+pageRef = "/chronik"
+weight = 20
+
+[[menu.main]]
+name = "Kirch"
+pageRef = "/kirch"
+weight = 30
+
+[[menu.main]]
+name = "Oiwei scho"
+pageRef = "/oiwei-scho"
+weight = 40
+
+[[menu.main]]
+name = "Wirtschaft"
+pageRef = "/wirtschaft"
+weight = 50
