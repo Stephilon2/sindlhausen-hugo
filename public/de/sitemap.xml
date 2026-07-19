@@ -3,6 +3,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>//localhost:1313/chronik/</loc>
+  </url>
+  <url>
     <loc>//localhost:1313/</loc>
     <xhtml:link
       rel="alternate"
@@ -14,5 +17,14 @@
       hreflang="de"
       href="//localhost:1313/"
     />
+  </url>
+  <url>
+    <loc>//localhost:1313/kirch/</loc>
+  </url>
+  <url>
+    <loc>//localhost:1313/oiwei-scho/</loc>
+  </url>
+  <url>
+    <loc>//localhost:1313/wirtschaft/</loc>
   </url>
 </urlset>

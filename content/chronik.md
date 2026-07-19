@@ -1,3 +1,8 @@
+---
+title: "Chronik"
+description: "Chronik von Sindlhausen"
+---
+
 # Chronik Sindlhausen
 
 Der Ortsname des kleinen, zwischen Schönau und Tuntenhausen gelegenen Ortes leitet sich von Sindilo, einem Kleriker, ab. Er wird in den Traditionen des Hochstifts Freising erwähnt. Demnach schenkt ein Sindilo am 20. November 772 mit seiner Mutter Hiltidrud Besitz in Sindilinhusir (an anderer Stelle auch Sindilindorf genannt) = Sindlhausen, den ihm sein Vater Hroadperht vererbt hatte, an eine von ihm gebaute und von Bischof Arbeo geweihte Kirche. Die Kirche wurde der Hauptkirche zu Freising überlassen. Sie ist die frühest bekannte Christophoruskirche Deutschlands. Im Wittelsbacher Urbarbesitz von 1230 ist aufgezeichnet, dass ein Hof in Sindlhausen den
