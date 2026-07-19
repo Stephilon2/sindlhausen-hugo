@@ -371,19 +371,89 @@
     
       
   
-    <a
-      href="/wirtschaft/"
-      
-      class="flex items-center bf-icon-color-hover"
-      aria-label="Wirtschaft"
-      title="wirtschaft">
-      
-      
-        <span class="text-base font-medium break-normal">
-          Wirtschaft
-        </span>
-      
-    </a>
+    <div class="nested-menu">
+      <div class="cursor-pointer flex items-center">
+        <a
+          
+            href="/wirtschaft/"
+            
+          
+          aria-label="Wirtschaft"
+          class="flex items-center text-base font-medium bf-icon-color-hover"
+          title="wirtschaft">
+          
+          <span class="text-bg font-bg break-normal" title="wirtschaft">
+            Wirtschaft
+          </span>
+          <span>
+            <span class="relative block icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+</span>
+          </span>
+        </a>
+      </div>
+      <div class="menuhide">
+        <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl bg-neutral/25 dark:bg-neutral-800/25">
+          <div class="flex flex-col space-y-3">
+            
+              <a
+                href="/wirtschaft/landwirtschaft/"
+                
+                aria-label="Landwirtschaft"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="landwirtschaft">
+                  Landwirtschaft
+                </span>
+              </a>
+            
+              <a
+                href="/wirtschaft/imkerei/"
+                
+                aria-label="Imkerei"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="imkerei">
+                  Imkerei
+                </span>
+              </a>
+            
+              <a
+                href="/wirtschaft/jagd/"
+                
+                aria-label="Jagd"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="jagd">
+                  Jagd
+                </span>
+              </a>
+            
+              <a
+                href="/wirtschaft/wasser/"
+                
+                aria-label="Wasser"
+                class="flex items-center bf-icon-color-hover">
+                
+                <span class="text-sm font-sm" title="wasser">
+                  Wasser
+                </span>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
   
 
     
@@ -588,8 +658,81 @@
           Wirtschaft
         </span>
         
+          <label
+            for="fullscreen-submenu-wirtschaft"
+            class="ms-auto flex items-center justify-center h-10 w-10 cursor-pointer rounded-lg bf-icon-color-hover border bf-border-color bf-border-color-hover">
+            <span class="relative block icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+</span>
+          </label>
+        
       </a>
 
+      
+        <input checked type="checkbox" id="fullscreen-submenu-wirtschaft" autocomplete="off" class="hidden peer/full">
+
+        <div
+          class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 peer-checked/full:grid-rows-[1fr]">
+          <div class="overflow-hidden">
+            <div class="ms-7 mt-4">
+              
+                <a
+                  href="/wirtschaft/landwirtschaft/"
+                  aria-label="Landwirtschaft"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="landwirtschaft" class="text-lg">
+                    Landwirtschaft
+                  </span>
+                </a>
+              
+                <a
+                  href="/wirtschaft/imkerei/"
+                  aria-label="Imkerei"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="imkerei" class="text-lg">
+                    Imkerei
+                  </span>
+                </a>
+              
+                <a
+                  href="/wirtschaft/jagd/"
+                  aria-label="Jagd"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="jagd" class="text-lg">
+                    Jagd
+                  </span>
+                </a>
+              
+                <a
+                  href="/wirtschaft/wasser/"
+                  aria-label="Wasser"
+                  
+                  class="flex items-center gap-3 p-2 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+                  
+                  <span title="wasser" class="text-lg">
+                    Wasser
+                  </span>
+                </a>
+              
+            </div>
+          </div>
+        </div>
       
     </div>
   

@@ -1,6 +1,6 @@
 ---
-title: "wirtschaft"
-description: "Wirtschaft"
+title: "Landwirtschaft"
+description: "Landwirtschaft in Sindlhausen"
 ---
 
 # Landwirtschaft

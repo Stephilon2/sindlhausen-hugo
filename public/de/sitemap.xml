@@ -19,10 +19,22 @@
     />
   </url>
   <url>
+    <loc>//localhost:1313/wirtschaft/imkerei/</loc>
+  </url>
+  <url>
+    <loc>//localhost:1313/wirtschaft/jagd/</loc>
+  </url>
+  <url>
     <loc>//localhost:1313/kirch/</loc>
   </url>
   <url>
+    <loc>//localhost:1313/wirtschaft/landwirtschaft/</loc>
+  </url>
+  <url>
     <loc>//localhost:1313/oiwei-scho/</loc>
+  </url>
+  <url>
+    <loc>//localhost:1313/wirtschaft/wasser/</loc>
   </url>
   <url>
     <loc>//localhost:1313/wirtschaft/</loc>

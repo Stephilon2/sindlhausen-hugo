@@ -24,6 +24,32 @@ pageRef = "/oiwei-scho"
 weight = 40
 
 [[menu.main]]
+identifier = "wirtschaft"
 name = "Wirtschaft"
 pageRef = "/wirtschaft"
 weight = 50
+
+[[menu.main]]
+name = "Landwirtschaft"
+pageRef = "/wirtschaft/landwirtschaft"
+parent = "wirtschaft"
+weight = 51
+
+[[menu.main]]
+name = "Imkerei"
+pageRef = "/wirtschaft/imkerei"
+parent = "wirtschaft"
+weight = 52
+
+[[menu.main]]
+name = "Jagd"
+pageRef = "/wirtschaft/jagd"
+parent = "wirtschaft"
+weight = 53
+
+[[menu.main]]
+name = "Wasser"
+pageRef = "/wirtschaft/wasser"
+parent = "wirtschaft"
+weight = 54
+
