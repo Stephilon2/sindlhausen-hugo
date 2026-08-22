@@ -53,3 +53,5 @@ pageRef = "/wirtschaft/wasser"
 parent = "wirtschaft"
 weight = 54
 
+[params]
+logo = "images/logo/kirche.jpg"

@@ -15,6 +15,10 @@ Damit es auch in Zukunft weiter in Sindlhausen summt und brummt, bietet der Lehr
 
 Wer mehr darüber wissen will, ist herzlich eingeladen den Lehrbienenstand in Tuntenhausen zu besuchen. Hier lernen Sie Menschen aller Altersgruppen kennen, die beim Thema Bienen die unterschiedlichsten Wege gehen. Alle Lehrveranstaltungen sind kostenlos, und auch Nichtimker sind herzlich eingeladen.
 
+<a href="https://www.bzv-hohenthann-schoenau.de" Bienenzuchtverein Hohenthann-Schönau e.V.
+    target="_blank"
+    rel="noopener noreferrer">
+
 ![Bienenzuchtverein Hohenthann-Schönau e.V.](www.bzv-hohenthann-schoenau.de)
  
 
