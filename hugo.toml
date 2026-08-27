@@ -55,3 +55,6 @@ weight = 54
 
 [params]
 logo = "images/logo/kirche.jpg"
+
+[params.header]
+layout = "fixed-fill"

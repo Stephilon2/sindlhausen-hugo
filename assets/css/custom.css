@@ -1,0 +1,38 @@
+/* Sindlhausen Farbschema */
+
+:root {
+    --sindlhausen-green-dark: #2f6b43;
+    --sindlhausen-green-light: #eef5ee;
+    --sindlhausen-neutral-light: #f3f3f1;
+    --sindlhausen-text: #222222;
+    --sindlhausen-header-text: #f4f8f4;
+}
+
+/* Header (params.header.layout = "fixed-fill" -> Wrapper-Div mit diesen Klassen) */
+
+.fixed.inset-x-0.bg-neutral.z-100 {
+    background-color: var(--sindlhausen-green-dark) !important;
+    color: var(--sindlhausen-header-text) !important;
+}
+
+/* Footer */
+
+#site-footer {
+    background-color: var(--sindlhausen-green-dark) !important;
+}
+
+#site-footer,
+#site-footer nav,
+#site-footer p {
+    color: var(--sindlhausen-header-text) !important;
+}
+
+/* Links */
+
+a {
+    color: var(--sindlhausen-green-dark);
+}
+
+a:hover {
+    color: #4d8a60;
+}
