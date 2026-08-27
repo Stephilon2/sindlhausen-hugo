@@ -75,6 +75,21 @@ h6 {
     color: var(--sindlhausen-header-text) !important;
 }
 
+/* Die Original-Seite wechselt erst bei ca. 1024px auf das Hamburger-Menue,
+   Blowfish (Tailwind "md" = 853px) schon deutlich frueher - dazwischen wirkt
+   der Header dadurch eng gepackt (Logo + 5 Menuepunkte + Icons in einer
+   Zeile). Bis 1023px zusaetzlich das Desktop-Menue ausblenden und das
+   Hamburger-Menue zeigen, damit der Umbruch spaeter/grosszuegiger passiert. */
+@media (max-width: 1023px) {
+    .fixed.inset-x-0.bg-neutral.z-100 .hidden.md\:flex {
+        display: none !important;
+    }
+
+    .fixed.inset-x-0.bg-neutral.z-100 .flex.md\:hidden {
+        display: flex !important;
+    }
+}
+
 /* Desktop-Untermenue (z.B. Wirtschaft -> Landwirtschaft/Imkerei/...).
    Blowfish nutzt hier ein leicht transparentes Weiss mit Blur, gedacht
    fuer einen bunten Foto-Hintergrund - auf unserem hellen Seitenhintergrund
@@ -159,6 +174,15 @@ body {
    drinsteckt - normaler Fliesstext behaelt seine lesbare Spaltenbreite. */
 .max-w-prose:has(.sh-section) {
     max-width: none !important;
+}
+
+/* single.html hat zusaetzlich einen aeusseren "max-w-fit"-Wrapper (schrumpft
+   auf Inhaltsbreite, ohne w-full) um den max-w-prose-Container - dadurch
+   entsteht eine zirkulaere Breitenberechnung, die den Abschnitt nach links
+   verschiebt. Auch diesen Wrapper auf volle Breite zwingen. */
+.max-w-fit:has(.sh-section) {
+    max-width: none !important;
+    width: 100% !important;
 }
 
 .sh-section {
