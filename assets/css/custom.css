@@ -152,6 +152,15 @@ body {
     overflow-x: hidden;
 }
 
+/* Auf Einzel-/Uebersichtsseiten (single.html/list.html) steckt der Inhalt in
+   einem schmalen, nicht zentrierten "max-w-prose"-Lesespalten-Container -
+   darin wuerde die 100vw-Vollbreiten-Technik unten falsch rechnen. Die
+   Breitenbeschraenkung nur dort aufheben, wo tatsaechlich ein Abschnitt
+   drinsteckt - normaler Fliesstext behaelt seine lesbare Spaltenbreite. */
+.max-w-prose:has(.sh-section) {
+    max-width: none !important;
+}
+
 .sh-section {
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -172,8 +181,15 @@ body {
 .sh-section--green h1,
 .sh-section--green h2,
 .sh-section--green h3,
-.sh-section--green a:not(.sh-button) {
+.sh-section--green a:not(.sh-button),
+.sh-section--green blockquote,
+.sh-section--green strong,
+.sh-section--green code {
     color: var(--sindlhausen-header-text);
+}
+
+.sh-section--green blockquote {
+    border-color: var(--sindlhausen-header-text);
 }
 
 .sh-section__inner {
