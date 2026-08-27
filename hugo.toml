@@ -128,9 +128,11 @@ weight = 20
 [params]
 logo = "images/logo/kirche.jpg"
 autoSwitchAppearance = false
+copyright = "© Urheberrecht. Alle Rechte vorbehalten."
 
 [params.header]
 layout = "fixed-fill"
 
 [params.footer]
 showAppearanceSwitcher = false
+showThemeAttribution = false

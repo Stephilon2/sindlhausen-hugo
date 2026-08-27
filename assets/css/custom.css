@@ -112,6 +112,9 @@ h6 {
     margin-right: calc(50% - 50vw);
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* footer.html hat keinen inneren Container - jedes direkte Kind einzeln
@@ -132,12 +135,54 @@ h6 {
     color: var(--sindlhausen-header-text) !important;
 }
 
+/* Reihenfolge wie im Original: Logo, dann Copyright, dann Impressum/Datenschutz
+   (footer.html rendert im Markup in der Reihenfolge Menue -> Copyright ->
+   extend-footer/Logo - hier per CSS order umsortiert statt das Theme zu patchen) */
+#site-footer nav {
+    order: 3;
+    padding-bottom: 0 !important;
+    justify-content: center;
+}
+
+#site-footer > div.flex.items-center.justify-between {
+    order: 2;
+    justify-content: center;
+    width: 100%;
+}
+
+.sindlhausen-footer-logo-wrap {
+    order: 1;
+}
+
+/* Impressum | Datenschutzerklaerung - immer nebeneinander mit Pipe-Trenner,
+   wie im Original (statt Blowfish-Default: gestapelt auf schmalen Screens) */
+#site-footer nav ul {
+    flex-direction: row !important;
+    justify-content: center;
+}
+
+#site-footer nav li {
+    margin: 0 !important;
+    text-align: center;
+}
+
+#site-footer nav li:not(:first-child)::before {
+    content: "|";
+    margin: 0 0.5rem;
+    color: var(--sindlhausen-header-text);
+}
+
+#site-footer nav a {
+    text-decoration: underline;
+}
+
 /* Footer-Logo als Home-Button */
 
 .sindlhausen-footer-logo-wrap {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .sindlhausen-footer-logo {
