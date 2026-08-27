@@ -4,6 +4,11 @@ disableLanguages = ['en']
 title = 'Sindlhausen'
 theme = 'blowfish'
 
+# Standard-Timeout (60s) reicht nicht mehr, sobald eine einzelne Seite sehr
+# viele Bilder ueber den gallery-Shortcode verarbeitet (z.B. die Sterbebilder-
+# Seite mit ueber 60 Bildern x 3 Groessenvarianten).
+timeout = "300s"
+
 # Explizite Mounts noetig, sobald einer definiert wird (Hugo ersetzt sonst
 # die Standard-Mounts komplett). Der letzte Eintrag macht static/images
 # zusaetzlich unter assets/images sichtbar, damit Hugos Bildverarbeitung
