@@ -1,3 +1,7 @@
 /public/
 /resources/
 .hugo_build.lock
+
+# Lokales Werkzeug zum Positionieren der Sterbebilder-Ausschnitte -
+# nur fuer den Hugo-Dev-Server, nicht Teil der veroeffentlichten Seite.
+/static/_devtools/

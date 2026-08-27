@@ -10,19 +10,21 @@
     fit     "cover" (Standard) fuellt ein festes Seitenverhaeltnis und
             beschneidet dafuer das Bild - passend fuer Quer-/Gruppenfotos.
             "contain" zeigt das ganze Bild unbeschnitten (mit Rand) an.
-            "square" schneidet ein quadratisches Thumbnail zu (wie im
-            Original von Hand gemacht). Standard-Anker ist "Top", da bei
-            hochformatigen Einzel-Sterbebildern Foto+Name oben stehen -
-            bei den vielen aufgeklappt gescannten Karten (Foto- und
-            Textseite nebeneinander) muss der Anker aber pro Bild
-            gesetzt werden (siehe images-Parameter), da mal links, mal
-            rechts das Foto steht.
-    images  Liste der Bilder: "pfad1.jpg|Alt-Text 1|Anker1;pfad2.jpg|Alt-Text 2;..."
-            (Eintraege durch ";" getrennt, Pfad/Alt-Text/Anker durch "|").
-            Der optionale dritte Teil ueberschreibt bei fit="square" den
-            Zuschnitt-Anker eines einzelnen Bildes (Hugo-Anker-Keywords:
-            Top, Center, Bottom, TopLeft, TopRight, BottomLeft,
-            BottomRight, Smart) - Standard ist "Top".
+            "square" zeigt ein quadratisches Thumbnail (wie im Original
+            von Hand gemacht), das Bild bleibt dabei unbeschnitten in
+            voller Aufloesung erhalten (kein Hugo-Zuschnitt) - die
+            Positionierung passiert per CSS object-position, stufenlos
+            und pro Bild einstellbar (siehe images-Parameter). Standard
+            ist "50% 0%" (oben), passend fuer Einzel-Sterbebilder mit
+            Foto oben; bei aufgeklappt gescannten Karten (Foto- und
+            Textseite nebeneinander) muss die Position pro Bild gesetzt
+            werden. Zum Feinjustieren: static/_devtools/crop-tool.html
+            (lokal, nicht veroeffentlicht) im Hugo-Dev-Server oeffnen.
+    images  Liste der Bilder: "pfad1.jpg|Alt-Text 1|X% Y%;pfad2.jpg|Alt-Text 2;..."
+            (Eintraege durch ";" getrennt, Pfad/Alt-Text/Position durch
+            "|"). Der optionale dritte Teil ist bei fit="square" die
+            CSS object-position (z.B. "30% 15%") fuer den Bildausschnitt
+            dieses einen Bildes - Standard ist "50% 0%".
             Pfade wie gewohnt als /images/... (Ordner unter static/images,
             zusaetzlich ueber den assets/images-Mount fuer die Bild-
             verarbeitung erreichbar, siehe hugo.toml module.mounts).
@@ -53,15 +55,24 @@
           {{ $imgPath := index $parts 0 }}
           {{ $imgAlt := "" }}
           {{ if gt (len $parts) 1 }}{{ $imgAlt = index $parts 1 }}{{ end }}
-          {{ $anchor := "Top" }}
-          {{ if gt (len $parts) 2 }}{{ $anchor = index $parts 2 }}{{ end }}
+          {{ $pos := "50% 0%" }}
+          {{ if gt (len $parts) 2 }}{{ $pos = index $parts 2 }}{{ end }}
           {{ $assetPath := strings.TrimPrefix "/" $imgPath }}
           {{ with resources.Get $assetPath }}
             {{ $thumbWebp := "" }}
             {{ $thumbJpg := "" }}
             {{ if eq $fit "square" }}
-              {{ $thumbWebp = .Fill (printf "480x480 %s webp q75" $anchor) }}
-              {{ $thumbJpg = .Fill (printf "480x480 %s jpg q75" $anchor) }}
+              {{/* Kein Hugo-Zuschnitt: die kuerzere Bildkante wird auf
+                   480px gebracht, damit das CSS-Quadrat (object-fit:
+                   cover) in jeder Richtung vollstaendig gefuellt ist;
+                   die Position steuert object-position (siehe CSS). */}}
+              {{ if lt .Width .Height }}
+                {{ $thumbWebp = .Resize "480x webp q75" }}
+                {{ $thumbJpg = .Resize "480x jpg q75" }}
+              {{ else }}
+                {{ $thumbWebp = .Resize "x480 webp q75" }}
+                {{ $thumbJpg = .Resize "x480 jpg q75" }}
+              {{ end }}
             {{ else }}
               {{ $thumbWebp = .Resize "480x webp q75" }}
               {{ $thumbJpg = .Resize "480x jpg q75" }}
@@ -81,6 +92,7 @@
                   height="{{ $thumbJpg.Height }}"
                   alt="{{ $imgAlt }}"
                   loading="lazy"
+                  {{ if eq $fit "square" }}style="object-position: {{ $pos }};"{{ end }}
                   class="nozoom">
               </picture>
             </a>
