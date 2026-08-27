@@ -79,6 +79,22 @@ h6 {
 
 #site-footer {
     background-color: var(--sindlhausen-green-dark) !important;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+/* footer.html hat keinen inneren Container - jedes direkte Kind einzeln
+   auf die Inhaltsbreite zentrieren, damit es zum Rest der Seite passt */
+#site-footer > * {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
 }
 
 #site-footer,
@@ -93,11 +109,11 @@ h6 {
 .sindlhausen-footer-logo-wrap {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .sindlhausen-footer-logo {
-    height: 4rem;
+    height: 2.75rem;
     width: auto;
     border-radius: 9999px;
     transition: transform 0.15s ease;
