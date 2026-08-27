@@ -7,6 +7,11 @@
   Parameter:
     title   (erforderlich) Ueberschrift des Abschnitts
     bg      "light" (Standard) oder "green" - Hintergrundfarbe
+    fit     "cover" (Standard) fuellt ein festes Seitenverhaeltnis und
+            beschneidet dafuer das Bild - passend fuer Quer-/Gruppenfotos.
+            "contain" zeigt das ganze Bild unbeschnitten (mit Rand) an -
+            fuer hochformatige Scans wie Sterbebilder, bei denen ein Zuschnitt
+            Koepfe/Text abschneiden wuerde.
     images  Liste der Bilder: "pfad1.jpg|Alt-Text 1;pfad2.jpg|Alt-Text 2;..."
             (Eintraege durch ";" getrennt, Pfad und Alt-Text durch "|").
             Pfade wie gewohnt als /images/... (Ordner unter static/images,
@@ -18,6 +23,7 @@
 */}}
 {{ $title := .Get "title" }}
 {{ $bg := .Get "bg" | default "light" }}
+{{ $fit := .Get "fit" | default "cover" }}
 {{ $imagesRaw := .Get "images" }}
 {{ $id := printf "pswp-gallery-%d" .Ordinal }}
 
@@ -32,7 +38,7 @@
           {{ . | markdownify }}
         </div>
       {{ end }}
-      <div class="sh-gallery" id="{{ $id }}">
+      <div class="sh-gallery sh-gallery--{{ $fit }}" id="{{ $id }}">
         {{ range split $imagesRaw ";" }}
           {{ $parts := split . "|" }}
           {{ $imgPath := index $parts 0 }}

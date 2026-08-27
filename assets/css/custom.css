@@ -319,6 +319,17 @@ body {
     opacity: 0.85;
 }
 
+/* Hochformatige Scans (z.B. Sterbebilder): ganzes Bild zeigen statt
+   zuzuschneiden, sonst werden Kopf/Text im festen Cover-Ausschnitt
+   abgeschnitten. */
+.sh-gallery.sh-gallery--contain img {
+    height: auto;
+    aspect-ratio: 3 / 5;
+    object-fit: contain;
+    background: var(--sindlhausen-neutral-light);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
 @media (min-width: 640px) {
     .sh-gallery {
         grid-template-columns: repeat(3, 1fr);
