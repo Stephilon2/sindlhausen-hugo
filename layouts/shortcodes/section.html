@@ -11,6 +11,11 @@
     orientation  "left" (Standard) oder "right" - Bildposition auf Desktop-Breite
     link         (optional) Ziel-URL, falls der Abschnitt ein Teaser auf eine Unterseite ist
     linktext     (optional) Linktext, Standard "Mehr erfahren"
+    gallery      (optional) Bildergalerie-Grid statt/zusaetzlich zum Fliesstext:
+                 "pfad1.jpg|Alt-Text 1;pfad2.jpg|Alt-Text 2;..." (Eintraege
+                 durch ";" getrennt, Pfad und Alt-Text durch "|"). Wird per
+                 Go-Template gerendert, nicht ueber .Inner/markdownify - HTML
+                 direkt im Markdown-Text wuerde sonst von Goldmark verworfen.
 
   Der Inhalt zwischen den Shortcode-Tags wird als Markdown gerendert.
 */}}
@@ -21,6 +26,7 @@
 {{ $orientation := .Get "orientation" | default "left" }}
 {{ $link := .Get "link" }}
 {{ $linktext := .Get "linktext" | default "Mehr erfahren" }}
+{{ $gallery := .Get "gallery" }}
 
 {{ if and $image (not $alt) }}
   {{ warnf "section-Shortcode auf %q: 'image' ohne 'alt' gesetzt (Seite: %s)" $title .Page.File.Path }}
@@ -38,6 +44,14 @@
       <div class="sh-section__text">
         {{ .Inner | markdownify }}
       </div>
+      {{ if $gallery }}
+        <div class="sh-gallery">
+          {{ range split $gallery ";" }}
+            {{ $parts := split . "|" }}
+            <img src="{{ index $parts 0 }}" alt="{{ if gt (len $parts) 1 }}{{ index $parts 1 }}{{ end }}" loading="lazy">
+          {{ end }}
+        </div>
+      {{ end }}
       {{ if $link }}
         <a class="sh-button" href="{{ $link }}">{{ $linktext }}</a>
       {{ end }}
