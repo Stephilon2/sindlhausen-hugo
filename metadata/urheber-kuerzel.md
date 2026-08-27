@@ -31,6 +31,7 @@ Regel: Personen erhalten zwei Buchstaben, Institutionen/Firmen/unbekannte Urhebe
 | GTC | Gemeinde Tuntenhausen Chronik (vormals getrennt als "Gemeindechronik" und "Chronik Buch" geführt — laut Dateizeitstempeln dieselbe Digitalisierungs-Sitzung, also dieselbe physische Quelle) |
 | WBV | Dias WBV (Wasserversorgungsverband) |
 | PRN | Perner |
+| SHC | Sindlhausen Chronik — Bilder ohne eigenen Personen-Unterordner im Source-Baum (direkt im jeweiligen Themenordner abgelegt), die aus dem Chronik-Bestand statt von einer einzelnen Person stammen |
 
 ## Sonderfall
 
