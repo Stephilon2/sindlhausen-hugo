@@ -23,6 +23,7 @@ Regel: Personen erhalten zwei Buchstaben, Institutionen/Firmen/unbekannte Urhebe
 | FS | Frieda |
 | MH | Schreier Marie |
 | CS | Karl Heinz |
+| MG2 | Magdi (Source-Ordner `Wasser/Renovierung/magdi *.JPG`) — Kürzel-Kollision mit MG (Martin), daher Zahlensuffix statt eines zweiten Zwei-Buchstaben-Kürzels |
 
 ## Institutionen / Firmen
 
