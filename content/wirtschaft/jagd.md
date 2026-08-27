@@ -3,13 +3,13 @@ title: "Jagd"
 description: "Jagerei in Sindlhausen"
 ---
 
-{{< section title="Jagdrevier Sindlhausen (Hohenthann I)" bg="light" >}}
+{{< section title="Jagdrevier Sindlhausen (Hohenthann I)" image="/images/wirtschaft/jagd/KG_treibjagd-schnee.JPG" alt="Treibjagd im Schnee bei Sindlhausen" bg="light" orientation="left" >}}
 Das Revier um Sindlhausen ist ein Niederwildrevier im typischen Voralpenland mit ca. 520 ha und teilt sich auf in ein Drittel Waldanteil und zwei Drittel Wiesen und Felder. Das Jagdrevier beginnt südlich mitten im Wald zwischen Sindlhausen und Tuntenhausen, geht östlich der Sindlhauserfilze zum Antersberger Segelfliegerplatz und folgt dann der Gemeindestraße zum Kühlloch. Westlich ist die Grenze die Staatsstraße Richtung Mailing und dort ostwärts durch den Wald zurück.
 
 Bis ca. 1950 war noch [Birkwild](https://de.wikipedia.org/wiki/Birkhuhn) (Birkhahn/-huhn) in der Filze vorhanden. Bis ca. 1958 waren noch Ketten von Rebhühnern im Revier und bis ca. 1975 gab es noch Fasane. Heute ist die Hauptwildart Rehwild, es gibt noch einzelne Wildhasen und Stockenten. Seit ein paar Jahren gibt es auch vermehrt Wildschweine.
 {{< /section >}}
 
-{{< section title="Die Jäger-Chronik" bg="green" >}}
+{{< section title="Die Jäger-Chronik" image="/images/wirtschaft/jagd/KG_jagdgesellschaft-auto.JPG" alt="Jagdgesellschaft bei Sindlhausen" bg="green" orientation="right" >}}
 Seit vier Generationen ist bekannt, dass Sindlhauser Jäger als Pächter oder Mitpächter das Revier betreuen. Den Erzählungen nach, betreuten folgende Jäger das Revier:
 
 - 1931 bekam Otto Gambos (Huberbauer) von seiner Firmpatin zur Hochzeit eine Büchsflinte, also ein Jagdgewehr geschenkt und ging mit dem Marklbauer, Katzlbauer zur Jagd. Vor dem Krieg musste nur eine Jagdkarte beantragt werden; war man unbescholten wurde diese erteilt.
