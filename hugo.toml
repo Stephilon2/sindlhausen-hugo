@@ -1,5 +1,6 @@
 baseURL = '/'
 defaultContentLanguage = 'de'
+disableLanguages = ['en']
 title = 'Sindlhausen'
 theme = 'blowfish'
 
