@@ -229,6 +229,10 @@ body {
     width: 100%;
 }
 
+.sh-section__media picture {
+    display: block;
+}
+
 .sh-section__media img {
     display: block;
     width: 100%;

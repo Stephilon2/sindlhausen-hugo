@@ -33,7 +33,22 @@
   <div class="sh-section__inner sh-section__inner--{{ $orientation }}">
     {{ if $image }}
       <div class="sh-section__media">
-        <img src="{{ $image }}" alt="{{ $alt }}" loading="lazy">
+        {{ $assetPath := strings.TrimPrefix "/" $image }}
+        {{ with resources.Get $assetPath }}
+          {{ $webp := .Resize "1200x webp q80" }}
+          {{ $jpg := .Resize "1200x jpg q80" }}
+          <picture>
+            <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+            <img
+              src="{{ $jpg.RelPermalink }}"
+              width="{{ $jpg.Width }}"
+              height="{{ $jpg.Height }}"
+              alt="{{ $alt }}"
+              loading="lazy">
+          </picture>
+        {{ else }}
+          {{ warnf "section-Shortcode auf %q: Bild nicht gefunden: %s (Seite: %s)" $title $image .Page.File.Path }}
+        {{ end }}
       </div>
     {{ end }}
     <div class="sh-section__content">
