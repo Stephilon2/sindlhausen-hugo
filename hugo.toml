@@ -115,6 +115,16 @@ pageRef = "/galerie/schafe"
 parent = "galerie"
 weight = 63
 
+[[menu.footer]]
+name = "Impressum"
+pageRef = "/impressum"
+weight = 10
+
+[[menu.footer]]
+name = "Datenschutzerklärung"
+pageRef = "/datenschutz"
+weight = 20
+
 [params]
 logo = "images/logo/kirche.jpg"
 autoSwitchAppearance = false
