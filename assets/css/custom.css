@@ -116,3 +116,108 @@ a {
 a:hover {
     color: var(--sindlhausen-green-mid);
 }
+
+/* Alternierender Themen-Abschnitt (Shortcode "section") */
+
+body {
+    overflow-x: hidden;
+}
+
+.sh-section {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 3rem 1.5rem;
+}
+
+.sh-section--light {
+    background-color: var(--sindlhausen-neutral-light);
+    color: var(--sindlhausen-text);
+}
+
+.sh-section--green {
+    background-color: var(--sindlhausen-green-mid);
+    color: var(--sindlhausen-header-text);
+}
+
+.sh-section--green h1,
+.sh-section--green h2,
+.sh-section--green h3,
+.sh-section--green a:not(.sh-button) {
+    color: var(--sindlhausen-header-text);
+}
+
+.sh-section__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.sh-section__media {
+    width: 100%;
+}
+
+.sh-section__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.sh-section__content {
+    width: 100%;
+}
+
+.sh-section__content h2 {
+    margin-top: 0;
+}
+
+.sh-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 0.3rem;
+    background-color: var(--sindlhausen-green-dark);
+    color: var(--sindlhausen-header-text) !important;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.sh-button:hover {
+    background-color: var(--sindlhausen-green-mid);
+    color: var(--sindlhausen-header-text) !important;
+}
+
+.sh-section--green .sh-button {
+    background-color: var(--sindlhausen-neutral-light);
+    color: var(--sindlhausen-heading-text) !important;
+}
+
+.sh-section--green .sh-button:hover {
+    background-color: #ffffff;
+    color: var(--sindlhausen-heading-text) !important;
+}
+
+@media (min-width: 853px) {
+    .sh-section__inner {
+        flex-direction: row;
+        gap: 3.5rem;
+    }
+
+    .sh-section__inner--right {
+        flex-direction: row-reverse;
+    }
+
+    .sh-section__media,
+    .sh-section__content {
+        width: 50%;
+    }
+
+    .sh-section__inner:not(:has(.sh-section__media)) .sh-section__content {
+        width: 100%;
+    }
+}

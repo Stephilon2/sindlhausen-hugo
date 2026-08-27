@@ -1,0 +1,46 @@
+{{/*
+  Alternierender Themen-Abschnitt (Bild + Text, wahlweise mit Link auf eine
+  Unterseite oder als eigenstaendiger Block, wenn ein Thema keine eigene
+  Seite braucht).
+
+  Parameter:
+    title        (erforderlich) Ueberschrift des Abschnitts
+    image        (optional) Pfad zu einem Bild unter /static, z.B. /images/kirche/aussen/DSCN0278.JPG
+    alt          (empfohlen, wenn image gesetzt) Bildbeschreibung fuer Barrierefreiheit
+    bg           "light" (Standard) oder "green" - Hintergrundfarbe des Abschnitts
+    orientation  "left" (Standard) oder "right" - Bildposition auf Desktop-Breite
+    link         (optional) Ziel-URL, falls der Abschnitt ein Teaser auf eine Unterseite ist
+    linktext     (optional) Linktext, Standard "Mehr erfahren"
+
+  Der Inhalt zwischen den Shortcode-Tags wird als Markdown gerendert.
+*/}}
+{{ $title := .Get "title" }}
+{{ $image := .Get "image" }}
+{{ $alt := .Get "alt" }}
+{{ $bg := .Get "bg" | default "light" }}
+{{ $orientation := .Get "orientation" | default "left" }}
+{{ $link := .Get "link" }}
+{{ $linktext := .Get "linktext" | default "Mehr erfahren" }}
+
+{{ if and $image (not $alt) }}
+  {{ warnf "section-Shortcode auf %q: 'image' ohne 'alt' gesetzt (Seite: %s)" $title .Page.File.Path }}
+{{ end }}
+
+<section class="sh-section sh-section--{{ $bg }}">
+  <div class="sh-section__inner sh-section__inner--{{ $orientation }}">
+    {{ if $image }}
+      <div class="sh-section__media">
+        <img src="{{ $image }}" alt="{{ $alt }}" loading="lazy">
+      </div>
+    {{ end }}
+    <div class="sh-section__content">
+      <h2>{{ $title }}</h2>
+      <div class="sh-section__text">
+        {{ .Inner | markdownify }}
+      </div>
+      {{ if $link }}
+        <a class="sh-button" href="{{ $link }}">{{ $linktext }}</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
