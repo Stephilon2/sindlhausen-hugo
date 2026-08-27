@@ -1,0 +1,15 @@
+{{ with .Site.Params.logo }}
+  {{ $logo := resources.Get . }}
+  {{ if $logo }}
+    <div class="sindlhausen-footer-logo-wrap">
+      <a href="{{ "" | relLangURL }}" aria-label="Startseite">
+        <img
+          src="{{ $logo.RelPermalink }}"
+          width="{{ $logo.Width }}"
+          height="{{ $logo.Height }}"
+          class="sindlhausen-footer-logo nozoom"
+          alt="">
+      </a>
+    </div>
+  {{ end }}
+{{ end }}

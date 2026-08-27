@@ -27,6 +27,25 @@
     color: var(--sindlhausen-header-text) !important;
 }
 
+/* Footer-Logo als Home-Button */
+
+.sindlhausen-footer-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.sindlhausen-footer-logo {
+    height: 4rem;
+    width: auto;
+    border-radius: 9999px;
+    transition: transform 0.15s ease;
+}
+
+.sindlhausen-footer-logo-wrap a:hover .sindlhausen-footer-logo {
+    transform: scale(1.08);
+}
+
 /* Links */
 
 a {
