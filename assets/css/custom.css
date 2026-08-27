@@ -75,6 +75,19 @@ h6 {
     color: var(--sindlhausen-header-text) !important;
 }
 
+/* Desktop-Untermenue (z.B. Wirtschaft -> Landwirtschaft/Imkerei/...).
+   Blowfish nutzt hier ein leicht transparentes Weiss mit Blur, gedacht
+   fuer einen bunten Foto-Hintergrund - auf unserem hellen Seitenhintergrund
+   kaum lesbar. Stattdessen solides Dunkelgruen, passend zum Header. */
+.nested-menu .menuhide > div {
+    background-color: var(--sindlhausen-green-dark) !important;
+    backdrop-filter: none !important;
+}
+
+.nested-menu .menuhide a:hover span {
+    text-decoration: underline;
+}
+
 /* Footer */
 
 #site-footer {
