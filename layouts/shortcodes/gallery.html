@@ -9,11 +9,20 @@
     bg      "light" (Standard) oder "green" - Hintergrundfarbe
     fit     "cover" (Standard) fuellt ein festes Seitenverhaeltnis und
             beschneidet dafuer das Bild - passend fuer Quer-/Gruppenfotos.
-            "contain" zeigt das ganze Bild unbeschnitten (mit Rand) an -
-            fuer hochformatige Scans wie Sterbebilder, bei denen ein Zuschnitt
-            Koepfe/Text abschneiden wuerde.
-    images  Liste der Bilder: "pfad1.jpg|Alt-Text 1;pfad2.jpg|Alt-Text 2;..."
-            (Eintraege durch ";" getrennt, Pfad und Alt-Text durch "|").
+            "contain" zeigt das ganze Bild unbeschnitten (mit Rand) an.
+            "square" schneidet ein quadratisches Thumbnail zu (wie im
+            Original von Hand gemacht). Standard-Anker ist "Top", da bei
+            hochformatigen Einzel-Sterbebildern Foto+Name oben stehen -
+            bei den vielen aufgeklappt gescannten Karten (Foto- und
+            Textseite nebeneinander) muss der Anker aber pro Bild
+            gesetzt werden (siehe images-Parameter), da mal links, mal
+            rechts das Foto steht.
+    images  Liste der Bilder: "pfad1.jpg|Alt-Text 1|Anker1;pfad2.jpg|Alt-Text 2;..."
+            (Eintraege durch ";" getrennt, Pfad/Alt-Text/Anker durch "|").
+            Der optionale dritte Teil ueberschreibt bei fit="square" den
+            Zuschnitt-Anker eines einzelnen Bildes (Hugo-Anker-Keywords:
+            Top, Center, Bottom, TopLeft, TopRight, BottomLeft,
+            BottomRight, Smart) - Standard ist "Top".
             Pfade wie gewohnt als /images/... (Ordner unter static/images,
             zusaetzlich ueber den assets/images-Mount fuer die Bild-
             verarbeitung erreichbar, siehe hugo.toml module.mounts).
@@ -44,10 +53,19 @@
           {{ $imgPath := index $parts 0 }}
           {{ $imgAlt := "" }}
           {{ if gt (len $parts) 1 }}{{ $imgAlt = index $parts 1 }}{{ end }}
+          {{ $anchor := "Top" }}
+          {{ if gt (len $parts) 2 }}{{ $anchor = index $parts 2 }}{{ end }}
           {{ $assetPath := strings.TrimPrefix "/" $imgPath }}
           {{ with resources.Get $assetPath }}
-            {{ $thumbWebp := .Resize "480x webp q75" }}
-            {{ $thumbJpg := .Resize "480x jpg q75" }}
+            {{ $thumbWebp := "" }}
+            {{ $thumbJpg := "" }}
+            {{ if eq $fit "square" }}
+              {{ $thumbWebp = .Fill (printf "480x480 %s webp q75" $anchor) }}
+              {{ $thumbJpg = .Fill (printf "480x480 %s jpg q75" $anchor) }}
+            {{ else }}
+              {{ $thumbWebp = .Resize "480x webp q75" }}
+              {{ $thumbJpg = .Resize "480x jpg q75" }}
+            {{ end }}
             {{ $large := .Resize "1920x webp q80" }}
             <a
               href="{{ $large.RelPermalink }}"

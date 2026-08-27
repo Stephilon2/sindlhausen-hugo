@@ -330,6 +330,15 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* Quadratische Thumbnails (z.B. Sterbebilder): der Zuschnitt passiert
+   bereits in Hugo (Fill, am oberen Bildrand verankert), hier nur noch
+   das quadratische Seitenverhaeltnis absichern. */
+.sh-gallery.sh-gallery--square img {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
 @media (min-width: 640px) {
     .sh-gallery {
         grid-template-columns: repeat(3, 1fr);
