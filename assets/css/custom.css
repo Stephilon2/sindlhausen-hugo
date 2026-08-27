@@ -1,17 +1,77 @@
-/* Sindlhausen Farbschema */
+/* Sindlhausen Farbschema (Werte von www.sindlhausen.de uebernommen) */
 
 :root {
-    --sindlhausen-green-dark: #2f6b43;
-    --sindlhausen-green-light: #eef5ee;
-    --sindlhausen-neutral-light: #f3f3f1;
-    --sindlhausen-text: #222222;
-    --sindlhausen-header-text: #f4f8f4;
+    --sindlhausen-green-dark: #295f3f;
+    --sindlhausen-green-mid: #4f8466;
+    --sindlhausen-neutral-light: #dce5e5;
+    --sindlhausen-text: #454545;
+    --sindlhausen-heading-text: #114927;
+    --sindlhausen-header-text: #dce5e5;
+}
+
+/* Schriften (self-hosted, wie auf der bisherigen Seite: Playfair Display fuer
+   Ueberschriften, Source Sans Pro/3 fuer Fliesstext - keine externen Font-CDNs) */
+
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    font-style: italic;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Source Sans 3";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/source-sans-3-latin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Source Sans 3";
+    font-style: italic;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/source-sans-3-latin-italic.woff2") format("woff2");
+}
+
+body {
+    background-color: var(--sindlhausen-neutral-light) !important;
+    color: var(--sindlhausen-text) !important;
+    font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    color: var(--sindlhausen-heading-text);
 }
 
 /* Header (params.header.layout = "fixed-fill" -> Wrapper-Div mit diesen Klassen) */
 
 .fixed.inset-x-0.bg-neutral.z-100 {
     background-color: var(--sindlhausen-green-dark) !important;
+    color: var(--sindlhausen-header-text) !important;
+}
+
+.fixed.inset-x-0.bg-neutral.z-100 h1,
+.fixed.inset-x-0.bg-neutral.z-100 h2,
+.fixed.inset-x-0.bg-neutral.z-100 h3,
+.fixed.inset-x-0.bg-neutral.z-100 a {
     color: var(--sindlhausen-header-text) !important;
 }
 
@@ -23,7 +83,8 @@
 
 #site-footer,
 #site-footer nav,
-#site-footer p {
+#site-footer p,
+#site-footer a {
     color: var(--sindlhausen-header-text) !important;
 }
 
@@ -49,9 +110,9 @@
 /* Links */
 
 a {
-    color: var(--sindlhausen-green-dark);
+    color: var(--sindlhausen-heading-text);
 }
 
 a:hover {
-    color: #4d8a60;
+    color: var(--sindlhausen-green-mid);
 }

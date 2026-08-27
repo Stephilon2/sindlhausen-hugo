@@ -55,6 +55,10 @@ weight = 54
 
 [params]
 logo = "images/logo/kirche.jpg"
+autoSwitchAppearance = false
 
 [params.header]
 layout = "fixed-fill"
+
+[params.footer]
+showAppearanceSwitcher = false
