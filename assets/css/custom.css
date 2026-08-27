@@ -291,14 +291,18 @@ body {
     }
 }
 
-/* Bildergalerie (z.B. Kreuzweg): Vorschaubilder-Grid, Klick zum Vergroessern
-   uebernimmt das sitewide bereits aktive medium-zoom - keine zusaetzliche
-   Abhaengigkeit noetig. */
+/* Bildergalerie (z.B. Kreuzweg): echte Thumbnails (Hugo Image Processing,
+   siehe gallery-Shortcode), Klick oeffnet PhotoSwipe (self-hosted). */
 .sh-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
     margin-top: 1.5rem;
+}
+
+.sh-gallery a,
+.sh-gallery picture {
+    display: block;
 }
 
 .sh-gallery img {
@@ -308,6 +312,11 @@ body {
     object-fit: cover;
     border-radius: 0.5rem;
     cursor: zoom-in;
+    transition: opacity 0.15s ease;
+}
+
+.sh-gallery a:hover img {
+    opacity: 0.85;
 }
 
 @media (min-width: 640px) {

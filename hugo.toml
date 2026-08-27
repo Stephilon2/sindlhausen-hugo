@@ -4,6 +4,38 @@ disableLanguages = ['en']
 title = 'Sindlhausen'
 theme = 'blowfish'
 
+# Explizite Mounts noetig, sobald einer definiert wird (Hugo ersetzt sonst
+# die Standard-Mounts komplett). Der letzte Eintrag macht static/images
+# zusaetzlich unter assets/images sichtbar, damit Hugos Bildverarbeitung
+# (Thumbnails, WebP) dieselben Dateien nutzen kann, die auch ganz normal
+# unter /images/... ausgeliefert werden - ohne sie zu verschieben oder
+# im Repo zu duplizieren.
+[module]
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "static/images"
+    target = "assets/images"
+
 [[menu.main]]
 name = "Dahoam"
 pageRef = "/"

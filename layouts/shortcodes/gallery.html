@@ -1,0 +1,80 @@
+{{/*
+  Bildergalerie mit echten Thumbnails (Hugo Image Processing, WebP + JPEG-
+  Fallback) und PhotoSwipe-Lightbox (self-hosted, kein CDN) fuer Wischen/
+  Tastaturnavigation. Ersetzt den frueheren "gallery"-Parameter des
+  section-Shortcodes.
+
+  Parameter:
+    title   (erforderlich) Ueberschrift des Abschnitts
+    bg      "light" (Standard) oder "green" - Hintergrundfarbe
+    images  Liste der Bilder: "pfad1.jpg|Alt-Text 1;pfad2.jpg|Alt-Text 2;..."
+            (Eintraege durch ";" getrennt, Pfad und Alt-Text durch "|").
+            Pfade wie gewohnt als /images/... (Ordner unter static/images,
+            zusaetzlich ueber den assets/images-Mount fuer die Bild-
+            verarbeitung erreichbar, siehe hugo.toml module.mounts).
+
+  Der Inhalt zwischen den Shortcode-Tags (optionaler Einleitungstext) wird
+  als Markdown gerendert.
+*/}}
+{{ $title := .Get "title" }}
+{{ $bg := .Get "bg" | default "light" }}
+{{ $imagesRaw := .Get "images" }}
+{{ $id := printf "pswp-gallery-%d" .Ordinal }}
+
+<link rel="stylesheet" href="/vendor/photoswipe/photoswipe.css">
+
+<section class="sh-section sh-section--{{ $bg }}">
+  <div class="sh-section__inner">
+    <div class="sh-section__content">
+      <h2>{{ $title }}</h2>
+      {{ with .Inner }}
+        <div class="sh-section__text">
+          {{ . | markdownify }}
+        </div>
+      {{ end }}
+      <div class="sh-gallery" id="{{ $id }}">
+        {{ range split $imagesRaw ";" }}
+          {{ $parts := split . "|" }}
+          {{ $imgPath := index $parts 0 }}
+          {{ $imgAlt := "" }}
+          {{ if gt (len $parts) 1 }}{{ $imgAlt = index $parts 1 }}{{ end }}
+          {{ $assetPath := strings.TrimPrefix "/" $imgPath }}
+          {{ with resources.Get $assetPath }}
+            {{ $thumbWebp := .Resize "480x webp q75" }}
+            {{ $thumbJpg := .Resize "480x jpg q75" }}
+            {{ $large := .Resize "1920x webp q80" }}
+            <a
+              href="{{ $large.RelPermalink }}"
+              data-pswp-width="{{ $large.Width }}"
+              data-pswp-height="{{ $large.Height }}"
+              target="_blank"
+              aria-label="{{ $imgAlt }} vergroessern">
+              <picture>
+                <source srcset="{{ $thumbWebp.RelPermalink }}" type="image/webp">
+                <img
+                  src="{{ $thumbJpg.RelPermalink }}"
+                  width="{{ $thumbJpg.Width }}"
+                  height="{{ $thumbJpg.Height }}"
+                  alt="{{ $imgAlt }}"
+                  loading="lazy"
+                  class="nozoom">
+              </picture>
+            </a>
+          {{ else }}
+            {{ warnf "gallery-Shortcode: Bild nicht gefunden: %s (Seite: %s)" $imgPath $.Page.File.Path }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  import PhotoSwipeLightbox from '/vendor/photoswipe/photoswipe-lightbox.esm.min.js';
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#{{ $id }}',
+    children: 'a',
+    pswpModule: () => import('/vendor/photoswipe/photoswipe.esm.min.js'),
+  });
+  lightbox.init();
+</script>
