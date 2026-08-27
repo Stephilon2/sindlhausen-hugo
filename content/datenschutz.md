@@ -33,11 +33,15 @@ Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit
 
 ## 2. Hosting
 
-### IONOS
+### GitHub Pages
 
-Wir hosten unsere Website bei IONOS SE. Anbieter ist die IONOS SE, Elgendorfer Str. 57, 56410 Montabaur (nachfolgend IONOS). Wenn Sie unsere Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von IONOS: [https://www.ionos.de/terms-gtc/terms-privacy](https://www.ionos.de/terms-gtc/terms-privacy)
+Wir hosten unsere Website bei GitHub Pages. Anbieter ist die GitHub, Inc., 88 Colorado Ave, Suite 300, Santa Monica, CA 90404, USA (nachfolgend „GitHub“).
 
-Die Verwendung von IONOS erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.
+Wenn Sie unsere Website besuchen, erfasst GitHub verschiedene Logfiles inklusive Ihrer IP-Adresse. Details entnehmen Sie der Datenschutzerklärung von GitHub: [https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement)
+
+Die Verwendung von GitHub Pages erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer zuverlässigen, kostengünstigen und stabilen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.
+
+**Datenübermittlung in die USA:** GitHub, Inc. hat seinen Sitz in den USA. Es lässt sich daher nicht ausschließen, dass die beim Websitebesuch erfassten Daten (insbesondere Ihre IP-Adresse) in die USA übermittelt und dort verarbeitet werden. ⚠️ *[Platzhalter – vor Freischaltung zu prüfen und zu ergänzen: aktueller Zertifizierungsstatus von GitHub, Inc. unter dem EU-US Data Privacy Framework bzw. die von GitHub verwendeten Standardvertragsklauseln (SCC) als Grundlage der Drittlandübermittlung, Art. 44 ff. DSGVO. Diese Angabe darf nicht ungeprüft übernommen werden.]*
 
 ## 3. Allgemeine Hinweise und Pflichtinformationen
 
