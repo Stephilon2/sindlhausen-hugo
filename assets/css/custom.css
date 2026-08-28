@@ -440,3 +440,84 @@ body {
         height: 240px;
     }
 }
+
+/* Karussell-Modus des gallery-Shortcodes (layout="carousel"): statt allem
+   auf einmal (Grid) nur ein paar Bilder anteasern, per Pfeil-Buttons oder
+   Wischen/Scrollen weiterblaettern. Alle Bilder bleiben im DOM (nur ausserhalb
+   des sichtbaren Bereichs) - Klick oeffnet wie im Grid-Modus die
+   PhotoSwipe-Lightbox mit allen Bildern. */
+.sh-carousel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.sh-gallery.sh-carousel__track {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-top: 0;
+}
+
+.sh-gallery.sh-carousel__track::-webkit-scrollbar {
+    display: none;
+}
+
+.sh-carousel__track > a {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+}
+
+.sh-carousel__track img {
+    height: 220px;
+}
+
+@media (min-width: 640px) {
+    .sh-carousel__track > a {
+        flex: 0 0 calc(50% - 0.375rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .sh-carousel__track > a {
+        flex: 0 0 calc(33.333% - 0.5rem);
+    }
+
+    .sh-carousel__track img {
+        height: 260px;
+    }
+}
+
+.sh-carousel__nav {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background-color: var(--sindlhausen-green-dark);
+    color: var(--sindlhausen-header-text);
+    transition: background-color 0.15s ease;
+}
+
+.sh-carousel__nav:hover {
+    background-color: var(--sindlhausen-green-mid);
+}
+
+.sh-carousel__nav-icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+}
+
+.sh-carousel__nav--prev .sh-carousel__nav-icon {
+    transform: rotate(90deg);
+}
+
+.sh-carousel__nav--next .sh-carousel__nav-icon {
+    transform: rotate(-90deg);
+}

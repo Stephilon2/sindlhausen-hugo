@@ -53,6 +53,30 @@ pageRef = "/"
 weight = 10
 
 [[menu.main]]
+identifier = "dorflebn"
+name = "Dorflebn"
+pageRef = "/dorflebn"
+weight = 15
+
+[[menu.main]]
+name = "Ortsversammlung"
+pageRef = "/dorflebn/ortsversammlung"
+parent = "dorflebn"
+weight = 16
+
+[[menu.main]]
+name = "Kind sein"
+pageRef = "/dorflebn/kind-sein"
+parent = "dorflebn"
+weight = 17
+
+[[menu.main]]
+name = "Glockenfest"
+pageRef = "/dorflebn/glockenfest"
+parent = "dorflebn"
+weight = 18
+
+[[menu.main]]
 name = "Chronik"
 pageRef = "/chronik"
 weight = 20
@@ -102,12 +126,6 @@ identifier = "galerie"
 name = "Galerie"
 pageRef = "/galerie"
 weight = 60
-
-[[menu.main]]
-name = "Glockenübergabe"
-pageRef = "/galerie/glockenuebergabe"
-parent = "galerie"
-weight = 61
 
 [[menu.main]]
 name = "Winter"

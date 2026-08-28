@@ -1,0 +1,20 @@
+{{/*
+  Section-Layout fuer "Dorflebn": nur Titel + Inhalt (unsere eigenen
+  section-Teaser). Das Default-Listen-Layout des Themes wuerde darunter
+  zusaetzlich automatisch alle Unterseiten als datierte Blog-Karten
+  auflisten (inkl. Fake-Datum "1. Januar 1", da unsere Seiten kein date-
+  Frontmatter haben) - das brauchen wir hier nicht, die Teaser oben
+  uebernehmen bereits die Navigation zu den Unterseiten.
+*/}}
+{{ define "main" }}
+  <header>
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title | emojify }}
+    </h1>
+  </header>
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
+    <div class="min-w-0 min-h-0 max-w-prose w-full">
+      {{ .Content }}
+    </div>
+  </section>
+{{ end }}

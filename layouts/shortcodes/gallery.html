@@ -7,6 +7,13 @@
   Parameter:
     title   (erforderlich) Ueberschrift des Abschnitts
     bg      "light" (Standard) oder "green" - Hintergrundfarbe
+    layout  "grid" (Standard) zeigt alle Bilder gleichzeitig als Raster.
+            "carousel" zeigt nur ein paar Bilder auf einmal (responsive:
+            1 auf Mobil, 2 auf Tablet, 3 auf Desktop) in einer horizontal
+            scrollbaren/wischbaren Reihe mit Pfeil-Buttons zum Weiterklicken.
+            Alle Bilder bleiben im DOM (nur per CSS ausserhalb des sichtbaren
+            Bereichs) - Klick auf ein Bild oeffnet wie im Grid-Modus die
+            PhotoSwipe-Lightbox, die dann durch ALLE Bilder blaettert.
     fit     "cover" (Standard) fuellt ein festes Seitenverhaeltnis und
             beschneidet dafuer das Bild - passend fuer Quer-/Gruppenfotos.
             "contain" zeigt das ganze Bild unbeschnitten (mit Rand) an.
@@ -34,6 +41,7 @@
 */}}
 {{ $title := .Get "title" }}
 {{ $bg := .Get "bg" | default "light" }}
+{{ $layout := .Get "layout" | default "grid" }}
 {{ $fit := .Get "fit" | default "cover" }}
 {{ $imagesRaw := .Get "images" }}
 {{ $id := printf "pswp-gallery-%d" .Ordinal }}
@@ -49,8 +57,16 @@
           {{ . | markdownify }}
         </div>
       {{ end }}
-      <div class="sh-gallery sh-gallery--{{ $fit }}" id="{{ $id }}">
-        {{ range split $imagesRaw ";" }}
+      <div class="{{ if eq $layout "carousel" }}sh-carousel{{ end }}">
+        {{ if eq $layout "carousel" }}
+          <button type="button" class="sh-carousel__nav sh-carousel__nav--prev" aria-label="Vorheriges Bild" data-carousel-target="{{ $id }}" data-carousel-dir="-1">
+            <span class="sh-carousel__nav-icon">{{ partial "icon.html" "chevron-down" }}</span>
+          </button>
+        {{ end }}
+        <div
+          class="sh-gallery sh-gallery--{{ $fit }} {{ if eq $layout "carousel" }}sh-carousel__track{{ end }}"
+          id="{{ $id }}">
+          {{ range split $imagesRaw ";" }}
           {{ $parts := split . "|" }}
           {{ $imgPath := index $parts 0 }}
           {{ $imgAlt := "" }}
@@ -99,6 +115,12 @@
           {{ else }}
             {{ warnf "gallery-Shortcode: Bild nicht gefunden: %s (Seite: %s)" $imgPath $.Page.File.Path }}
           {{ end }}
+          {{ end }}
+        </div>
+        {{ if eq $layout "carousel" }}
+          <button type="button" class="sh-carousel__nav sh-carousel__nav--next" aria-label="Naechstes Bild" data-carousel-target="{{ $id }}" data-carousel-dir="1">
+            <span class="sh-carousel__nav-icon">{{ partial "icon.html" "chevron-down" }}</span>
+          </button>
         {{ end }}
       </div>
     </div>
@@ -114,3 +136,21 @@
   });
   lightbox.init();
 </script>
+
+{{ if eq $layout "carousel" }}
+  <script>
+    (function () {
+      var track = document.getElementById('{{ $id }}');
+      if (!track) return;
+      document.querySelectorAll('[data-carousel-target="{{ $id }}"]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var item = track.querySelector('a');
+          if (!item) return;
+          var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+          var amount = (item.getBoundingClientRect().width + gap) * parseInt(btn.dataset.carouselDir, 10);
+          track.scrollBy({ left: amount, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+{{ end }}
