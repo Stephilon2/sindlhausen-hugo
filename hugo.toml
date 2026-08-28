@@ -9,6 +9,12 @@ theme = 'blowfish'
 # Seite mit ueber 60 Bildern x 3 Groessenvarianten).
 timeout = "300s"
 
+# Blowfish deklariert dies nur in der eigenen exampleSite-Config, nicht als
+# automatisch vererbten Theme-Default - ohne diesen Block wird kein
+# index.json gebaut und die Kopfzeilen-Suche findet nie einen Index (404).
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
 # Explizite Mounts noetig, sobald einer definiert wird (Hugo ersetzt sonst
 # die Standard-Mounts komplett). Der letzte Eintrag macht static/images
 # zusaetzlich unter assets/images sichtbar, damit Hugos Bildverarbeitung
