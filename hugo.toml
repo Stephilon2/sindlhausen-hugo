@@ -139,6 +139,13 @@ copyright = "© Urheberrecht. Alle Rechte vorbehalten."
 [params.header]
 layout = "fixed-fill"
 
+# Datum und Lesezeit sind fuer eine Dorf-Infoseite ohne Blog-Charakter nicht
+# sinnvoll (u.a. zeigt Hugo mangels gesetztem Datum in den Front-Mattern
+# ohnehin nur den Platzhalterwert "1. Januar 1").
+[params.article]
+showDate = false
+showReadingTime = false
+
 [params.footer]
 showAppearanceSwitcher = false
 showThemeAttribution = false

@@ -90,6 +90,42 @@ h6 {
     }
 }
 
+/* Mobiles Vollbild-Menue (role="dialog") steckt technisch im Header-Wrapper,
+   hat aber einen hellen Hintergrund (bg-neutral-50) - die oben per !important
+   erzwungene helle Header-Textfarbe waere darauf unlesbar (gleiches Muster
+   wie das fruehere Popup-Kontrastproblem, siehe css_inheritance_gotcha).
+   Alles im Dialog auf die normale dunkle Textfarbe zuruecksetzen. */
+.fixed.inset-x-0.bg-neutral.z-100 [role="dialog"] {
+    color: var(--sindlhausen-text) !important;
+}
+
+.fixed.inset-x-0.bg-neutral.z-100 [role="dialog"] a {
+    color: var(--sindlhausen-heading-text) !important;
+}
+
+/* Header-Icons (Suche, Hamburger, ...) ausserhalb des Menue-Dialogs: das
+   Theme faerbt sie beim Hover blau (primary-600), was auf unserem
+   dunkelgruenen Header-Hintergrund ein Kontrastverhaeltnis von nur ~1.5:1
+   ergibt und praktisch unsichtbar ist. Stattdessen weiss. */
+.fixed.inset-x-0.bg-neutral.z-100 .bf-icon-color-hover:hover {
+    color: #ffffff !important;
+}
+
+/* ...innerhalb des (hellen) Menue-Dialogs waere Weiss dagegen unlesbar -
+   dort stattdessen die Hover-Farbe verwenden, die auch der Rest der Seite
+   fuer Links nutzt. */
+.fixed.inset-x-0.bg-neutral.z-100 [role="dialog"] .bf-icon-color-hover:hover {
+    color: var(--sindlhausen-green-mid) !important;
+}
+
+/* Mobil wirkt die Lupe (dicke, fast geschlossene Kreisflaeche) neben dem
+   duennen Hamburger-Icon optisch deutlich dominanter, obwohl beide exakt
+   dieselbe Boundingbox haben. Nur die Grafik verkleinern (nicht die
+   Boundingbox/Trefflaeche des Buttons), damit es ausgewogener wirkt. */
+#search-button-mobile .icon svg {
+    transform: scale(0.8);
+}
+
 /* Desktop-Untermenue (z.B. Wirtschaft -> Landwirtschaft/Imkerei/...).
    Blowfish nutzt hier ein leicht transparentes Weiss mit Blur, gedacht
    fuer einen bunten Foto-Hintergrund - auf unserem hellen Seitenhintergrund
