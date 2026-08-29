@@ -82,9 +82,28 @@ pageRef = "/chronik"
 weight = 20
 
 [[menu.main]]
+identifier = "kirch"
 name = "Kirch"
 pageRef = "/kirch"
 weight = 30
+
+[[menu.main]]
+name = "Die neue Glocke"
+pageRef = "/kirch/glocke"
+parent = "kirch"
+weight = 31
+
+[[menu.main]]
+name = "Innenansicht"
+pageRef = "/kirch/innenansicht"
+parent = "kirch"
+weight = 32
+
+[[menu.main]]
+name = "Kreuzweg"
+pageRef = "/kirch/kreuzweg"
+parent = "kirch"
+weight = 33
 
 [[menu.main]]
 name = "Oiwei scho"
