@@ -182,6 +182,7 @@ layout = "fixed-fill"
 [params.article]
 showDate = false
 showReadingTime = false
+showWordCount = false
 
 [params.footer]
 showAppearanceSwitcher = false
