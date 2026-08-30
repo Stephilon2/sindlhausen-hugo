@@ -20,7 +20,7 @@ Zum Neujahrswünschen wird dabei folgender Spruch aufgesagt:
 > für heut und immerdar!
 {{< /gallery >}}
 
-{{< gallery title="Oarbettln" bg="light" images="/images/tradition/oarbettln/SHC_oarbettln.JPG|Oarbettln;/images/tradition/oarbettln/FS_oarbettln_1975.jpg|Oascheibn, ca. 1975" >}}
+{{< gallery title="Oarbettln" bg="light" images="/images/tradition/oarbettln/SHC_oarbettln.JPG|Oarbettln, 1940er Jahre;/images/tradition/oarbettln/FS_oarbettln_1975.jpg|Oascheibn, ca. 1975" >}}
 Auch am Ostersonntag wird von Haus zu Haus gegangen und die Kinder bekommen dafür gefärbte Ostereier zum „Oarscheiben“. Der Spruch zu diesem Anlass ist einfacher und lautet:
 
 > Bitte-gar-schee um a Osteroar!
