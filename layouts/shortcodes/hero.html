@@ -1,0 +1,38 @@
+{{/*
+  Vollbreites Panorama-Banner mit Titel-Overlay, wie auf der Original-
+  Website (dort per CSS background-size:cover umgesetzt). Anders als der
+  section-Shortcode zeigt dieser das Bild als zugeschnittenen Hintergrund
+  ueber die volle Breite, mit dem Titel darueber statt daneben.
+
+  Parameter:
+    image    (erforderlich) Pfad zu einem Bild unter /static
+    alt      (empfohlen)    Bildbeschreibung fuer Barrierefreiheit
+    title    (erforderlich) Ueberschrift, die auf dem Bild angezeigt wird
+*/}}
+{{ $image := .Get "image" }}
+{{ $alt := .Get "alt" }}
+{{ $title := .Get "title" }}
+
+{{ if and $image (not $alt) }}
+  {{ warnf "hero-Shortcode auf %q: 'image' ohne 'alt' gesetzt (Seite: %s)" $title .Page.File.Path }}
+{{ end }}
+
+<section class="sh-hero">
+  {{ $assetPath := strings.TrimPrefix "/" $image }}
+  {{ with resources.Get $assetPath }}
+    {{ $webp := .Resize "1728x webp q80" }}
+    {{ $jpg := .Resize "1728x jpg q80" }}
+    <picture>
+      <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+      <img
+        src="{{ $jpg.RelPermalink }}"
+        width="{{ $jpg.Width }}"
+        height="{{ $jpg.Height }}"
+        alt="{{ $alt }}"
+        loading="eager">
+    </picture>
+  {{ else }}
+    {{ warnf "hero-Shortcode auf %q: Bild nicht gefunden: %s (Seite: %s)" $title $image .Page.File.Path }}
+  {{ end }}
+  <h2 class="sh-hero__title">{{ $title }}</h2>
+</section>

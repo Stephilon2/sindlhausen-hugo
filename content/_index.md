@@ -3,8 +3,7 @@ title: "Dahoam"
 description: "Willkommen in Sindlhausen"
 ---
 
-{{< section title="Sindlhausen seit 772" image="/images/dahoam/SHC_panorama-sonnenuntergang.jpg" alt="Sindlhausen seit 772" bg="green" orientation="left" >}}
-{{< /section >}}
+{{< hero image="/images/dahoam/SHC_panorama-sonnenuntergang.jpg" alt="Sindlhausen seit 772" title="Sindlhausen seit 772" >}}
 
 # Willkommen in Sindlhausen
 
