@@ -1,0 +1,506 @@
+<!--
+  Werkzeug fuer Helfer: Fotos auswaehlen/beschriften - entweder aus einem
+  rohen Foto-Ordner (neue Fotos, noch keine Galerie) oder als Pruefung
+  einer bereits bestehenden Galerie (Reihenfolge aendern, Bemerkungen
+  ergaenzen, einzelne Bilder abwaehlen/entfernen). Kein Teil der
+  eigentlichen Website - nicht im Menue verlinkt, per build.list=false
+  auch nicht in Sitemap/Listen.
+
+  Modus A - neuer, roher Foto-Ordner:
+    1. Fotos nach static/images/mithelfen/<name>/ legen.
+    2. content/mithelfen/<name>.md anlegen mit Front Matter:
+         title: "Fotoauswahl: <Thema>"
+         imagefolder: "images/mithelfen/<name>"
+         build:
+           list: false
+    3. Seite bauen, Link https://.../mithelfen/<name>/ dem Helfer schicken.
+
+  Modus B - bestehende Galerie pruefen lassen:
+    1. content/mithelfen/<name>.md anlegen mit Front Matter:
+         title: "Galerie pruefen: <Thema>"
+         sourcepage: "<Pfad der Seite mit dem gallery-Shortcode>"
+         sourcegallery: "<title= des betreffenden gallery-Shortcodes>"
+         build:
+           list: false
+       Beispiel fuer die Glockenuebergabe (liegt in content/kirch/glocke.md
+       im Shortcode mit title="Glockenübergabe"):
+         sourcepage: "kirch/glocke"
+         sourcegallery: "Glockenübergabe"
+    2. Seite bauen, Link dem Helfer schicken. Er sieht die aktuellen
+       Bilder inkl. bisheriger Bemerkung, vorausgewaehlt (Haken = bleibt
+       drin), kann Reihenfolge per Pfeile aendern, Bemerkungen
+       aendern/ergaenzen und einzelne Bilder abwaehlen (= entfernen).
+    3. Die gespeicherte JSON-Datei enthaelt die neue Reihenfolge -
+       damit dann content/kirch/glocke.md von Hand aktualisieren.
+
+  Eigenstaendiges Template (kein baseof/Blowfish-Header) - bewusst
+  einfach gehalten, damit auch technisch ungeuebte Helfer klarkommen.
+
+  Technischer Hinweis Modus B: es gibt keine strukturierte Datenquelle
+  fuer bereits veroeffentlichte Galerien (die Bilderliste steckt als
+  ein langer Shortcode-Parameter direkt im Markdown). Der bestehende
+  gallery-Shortcode-Aufruf wird deshalb hier per Regex aus .RawContent
+  der Quellseite herausgesucht (ueber sein title=-Attribut identifiziert)
+  und genau wie im gallery-Shortcode selbst geparst (Pfad|Alt|Position,
+  Eintraege durch ";" getrennt). Aendert sich das Shortcode-Markup
+  grundlegend, muss dieser Teil hier mit angepasst werden.
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ .Title }} – Sindlhausen</title>
+{{ $folder := .Params.imagefolder }}
+{{ $sourcePagePath := .Params.sourcepage }}
+{{ $sourceGalleryTitle := .Params.sourcegallery }}
+{{ $review := and $sourcePagePath $sourceGalleryTitle }}
+{{ $images := slice }}
+{{ if $review }}
+  {{ with .Site.GetPage $sourcePagePath }}
+    {{ $raw := .RawContent }}
+    {{ $blocks := findRE `\{\{<\s*gallery.*?>\}\}` $raw 50 }}
+    {{ range $blocks }}
+      {{ $block := . }}
+      {{ if in $block (printf "title=%q" $sourceGalleryTitle) }}
+        {{ $imagesRaw := replaceRE `.*images="([^"]*)".*` "$1" $block }}
+        {{ range split $imagesRaw ";" }}
+          {{ $parts := split . "|" }}
+          {{ $imgPath := index $parts 0 }}
+          {{ $alt := "" }}
+          {{ if gt (len $parts) 1 }}{{ $alt = index $parts 1 }}{{ end }}
+          {{ $assetPath := strings.TrimPrefix "/" $imgPath }}
+          {{ with resources.Get $assetPath }}
+            {{ $images = $images | append (dict "resource" . "filename" (path.Base $imgPath) "alt" $alt) }}
+          {{ else }}
+            {{ warnf "mithelfen-Seite %q: Bild aus Quellseite %q nicht gefunden: %s" $.Page.File.Path $sourcePagePath $imgPath }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else if $folder }}
+  {{ $matched := resources.Match (printf "%s/*" $folder) }}
+  {{ range sort $matched "Name" }}
+    {{ if in (slice "jpeg" "png" "webp") .MediaType.SubType }}
+      {{ $images = $images | append (dict "resource" . "filename" (path.Base .Name) "alt" "") }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+<style>
+  :root {
+    --sindlhausen-green-dark: #295f3f;
+    --sindlhausen-green-mid: #4f8466;
+    --sindlhausen-neutral-light: #dce5e5;
+    --sindlhausen-text: #454545;
+    --sindlhausen-heading-text: #114927;
+    --sindlhausen-header-text: #dce5e5;
+  }
+
+  @font-face {
+    font-family: "Playfair Display";
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Source Sans 3";
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/source-sans-3-latin.woff2") format("woff2");
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background-color: var(--sindlhausen-neutral-light);
+    color: var(--sindlhausen-text);
+    font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  h1, h2 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    color: var(--sindlhausen-heading-text);
+  }
+
+  header.sh-tool-header {
+    background-color: var(--sindlhausen-green-dark);
+    color: var(--sindlhausen-header-text);
+    padding: 1.25rem 1.5rem;
+  }
+
+  header.sh-tool-header h1 {
+    margin: 0 0 0.35rem 0;
+    color: var(--sindlhausen-header-text);
+    font-size: 1.5rem;
+  }
+
+  header.sh-tool-header p {
+    margin: 0;
+    max-width: 60rem;
+  }
+
+  main {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .sh-tool-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--sindlhausen-neutral-light);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-bottom: 1.5rem;
+  }
+
+  .sh-tool-bar button {
+    cursor: pointer;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.6rem 1.1rem;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+
+  .sh-tool-btn-secondary {
+    background-color: #ffffff;
+    color: var(--sindlhausen-heading-text);
+    border: 1px solid var(--sindlhausen-green-dark) !important;
+  }
+
+  .sh-tool-btn-primary {
+    background-color: var(--sindlhausen-green-dark);
+    color: var(--sindlhausen-header-text);
+  }
+
+  .sh-tool-btn-primary:disabled {
+    background-color: #9aa8a2;
+    cursor: not-allowed;
+  }
+
+  .sh-tool-count {
+    margin-left: auto;
+    font-weight: 600;
+  }
+
+  .sh-tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .sh-tool-card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.15s ease;
+  }
+
+  .sh-tool-card:has(input[type="checkbox"]:checked) {
+    box-shadow: 0 0 0 3px var(--sindlhausen-green-mid);
+  }
+
+  .sh-tool-card a {
+    display: block;
+  }
+
+  .sh-tool-card img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    background-color: var(--sindlhausen-neutral-light);
+    border-radius: 0.3rem;
+    cursor: zoom-in;
+  }
+
+  .sh-tool-card .sh-tool-filename {
+    font-size: 0.75rem;
+    color: #777;
+    word-break: break-all;
+    margin: 0.4rem 0 0.5rem 0;
+  }
+
+  .sh-tool-position {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sindlhausen-green-dark);
+    margin-bottom: 0.35rem;
+  }
+
+  .sh-tool-select {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .sh-tool-select input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .sh-tool-card label.sh-tool-field {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+  }
+
+  .sh-tool-card input[type="text"],
+  .sh-tool-card input[type="number"] {
+    width: 100%;
+    margin-top: 0.2rem;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+
+  .sh-tool-reorder {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .sh-tool-reorder button {
+    flex: 1;
+    cursor: pointer;
+    border: 1px solid var(--sindlhausen-green-dark);
+    border-radius: 0.3rem;
+    background-color: #ffffff;
+    color: var(--sindlhausen-heading-text);
+    font-size: 1rem;
+    padding: 0.35rem;
+  }
+
+  .sh-tool-reorder button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .sh-tool-note {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background-color: #ffffff;
+    border-left: 4px solid var(--sindlhausen-green-mid);
+    border-radius: 0.3rem;
+    display: none;
+  }
+
+  .sh-tool-note.sh-tool-note--visible {
+    display: block;
+  }
+
+  .sh-tool-note a {
+    color: var(--sindlhausen-heading-text);
+  }
+
+  .sh-tool-empty {
+    padding: 2rem;
+    text-align: center;
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<header class="sh-tool-header">
+  <h1>{{ .Title }}</h1>
+  {{ if $review }}
+  <p>Bitte pruefen: Bilder ohne Haken werden aus der Galerie entfernt.
+  Mit den Pfeilen laesst sich die Reihenfolge aendern, die Bemerkung zu
+  jedem Bild kann ergaenzt oder korrigiert werden. Am Ende auf "Auswahl
+  speichern" klicken - die Datei bitte anschliessend per E-Mail an
+  <strong>info@sindlhausen.de</strong> schicken.</p>
+  {{ else }}
+  <p>Bitte die Bilder ankreuzen, die verwendet werden sollen. Zu jedem
+  ausgewaehlten Bild koennen Jahr und eine kurze Bemerkung eingetragen
+  werden (beides freiwillig). Am Ende auf "Auswahl speichern" klicken -
+  die Datei bitte anschliessend per E-Mail an
+  <strong>info@sindlhausen.de</strong> schicken.</p>
+  {{ end }}
+</header>
+
+<main>
+{{ if eq (len $images) 0 }}
+  <p class="sh-tool-empty">Keine Bilder gefunden.
+  {{ if $review }}(Quellseite: {{ $sourcePagePath }}, Galerie: {{ $sourceGalleryTitle }}){{ else }}(Ordner: {{ $folder }}){{ end }}</p>
+{{ else }}
+  <div class="sh-tool-bar">
+    <button type="button" class="sh-tool-btn-secondary" id="sh-select-all">Alle auswaehlen</button>
+    <button type="button" class="sh-tool-btn-secondary" id="sh-select-none">Alle abwaehlen</button>
+    <span class="sh-tool-count"><span id="sh-count">0</span> von {{ len $images }} {{ if $review }}bleiben{{ else }}ausgewaehlt{{ end }}</span>
+  </div>
+
+  <div class="sh-tool-grid" id="sh-grid">
+    {{ range $i, $entry := $images }}
+      {{ $img := $entry.resource }}
+      {{ $thumb := $img.Resize "400x q75" }}
+      {{ $large := $img.Resize "1600x q82" }}
+      {{ $filename := $entry.filename }}
+      <div class="sh-tool-card">
+        {{ if $review }}<p class="sh-tool-position">Position <span class="sh-tool-position-num">{{ add $i 1 }}</span></p>{{ end }}
+        <div class="sh-tool-select">
+          <input type="checkbox" id="sh-check-{{ $i }}" data-file="{{ $filename }}" {{ if $review }}checked{{ end }}>
+          <label for="sh-check-{{ $i }}">{{ if $review }}Behalten{{ else }}Auswaehlen{{ end }}</label>
+        </div>
+        <a href="{{ $large.RelPermalink }}" target="_blank" rel="noopener" aria-label="{{ $filename }} in voller Groesse ansehen">
+          <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy" alt="{{ $filename }}">
+        </a>
+        <p class="sh-tool-filename">{{ $filename }}</p>
+        <label class="sh-tool-field">Jahr
+          <input type="text" inputmode="numeric" maxlength="9" data-field="jahr" placeholder="z.B. 1998">
+        </label>
+        <label class="sh-tool-field">Bemerkung
+          <input type="text" maxlength="200" data-field="bemerkung" value="{{ $entry.alt }}" placeholder="z.B. Kirchweih, Umzug">
+        </label>
+        {{ if $review }}
+        <div class="sh-tool-reorder">
+          <button type="button" class="sh-move-up" aria-label="Nach oben">↑</button>
+          <button type="button" class="sh-move-down" aria-label="Nach unten">↓</button>
+        </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  <div class="sh-tool-bar" style="border-bottom: none; border-top: 1px solid rgba(0,0,0,0.12); margin-top: 1.5rem;">
+    <button type="button" class="sh-tool-btn-primary" id="sh-save" disabled>Auswahl speichern</button>
+  </div>
+
+  <div class="sh-tool-note" id="sh-note">
+    <p><strong>Datei wurde heruntergeladen.</strong> Bitte diese Datei per
+    E-Mail an <strong>info@sindlhausen.de</strong> anhaengen und senden.</p>
+    <p><a id="sh-mailto" href="#">E-Mail vorbereiten (Anhang bitte manuell hinzufuegen)</a></p>
+  </div>
+
+  <script>
+  (function () {
+    var review = {{ $review }};
+    var ordner = {{ $folder }};
+    var quellseite = {{ $sourcePagePath }};
+    var galerie = {{ $sourceGalleryTitle }};
+    var titel = {{ .Title }};
+    var grid = document.getElementById('sh-grid');
+    var countEl = document.getElementById('sh-count');
+    var saveBtn = document.getElementById('sh-save');
+    var note = document.getElementById('sh-note');
+    var mailtoLink = document.getElementById('sh-mailto');
+
+    function cards() {
+      return Array.prototype.slice.call(grid.querySelectorAll('.sh-tool-card'));
+    }
+
+    function updateCount() {
+      var checked = grid.querySelectorAll('input[type="checkbox"]:checked').length;
+      countEl.textContent = checked;
+      saveBtn.disabled = checked === 0;
+    }
+
+    function renumber() {
+      if (!review) return;
+      var all = cards();
+      all.forEach(function (card, i) {
+        var posEl = card.querySelector('.sh-tool-position-num');
+        if (posEl) posEl.textContent = i + 1;
+        card.querySelector('.sh-move-up').disabled = i === 0;
+        card.querySelector('.sh-move-down').disabled = i === all.length - 1;
+      });
+    }
+
+    grid.addEventListener('change', function (e) {
+      if (e.target.matches('input[type="checkbox"]')) updateCount();
+    });
+
+    grid.addEventListener('click', function (e) {
+      var card = e.target.closest('.sh-tool-card');
+      if (!card) return;
+      if (e.target.classList.contains('sh-move-up')) {
+        var prev = card.previousElementSibling;
+        if (prev) grid.insertBefore(card, prev);
+        renumber();
+      } else if (e.target.classList.contains('sh-move-down')) {
+        var next = card.nextElementSibling;
+        if (next) grid.insertBefore(next, card);
+        renumber();
+      }
+    });
+
+    document.getElementById('sh-select-all').addEventListener('click', function () {
+      cards().forEach(function (card) {
+        card.querySelector('input[type="checkbox"]').checked = true;
+      });
+      updateCount();
+    });
+
+    document.getElementById('sh-select-none').addEventListener('click', function () {
+      cards().forEach(function (card) {
+        card.querySelector('input[type="checkbox"]').checked = false;
+      });
+      updateCount();
+    });
+
+    saveBtn.addEventListener('click', function () {
+      var auswahl = [];
+      cards().forEach(function (card) {
+        var checkbox = card.querySelector('input[type="checkbox"]');
+        if (!checkbox.checked) return;
+        auswahl.push({
+          datei: checkbox.dataset.file,
+          jahr: card.querySelector('[data-field="jahr"]').value.trim(),
+          bemerkung: card.querySelector('[data-field="bemerkung"]').value.trim()
+        });
+      });
+
+      var payload = {
+        modus: review ? 'galerie-pruefung' : 'foto-auswahl',
+        titel: titel,
+        erstelltAm: new Date().toISOString(),
+        auswahl: auswahl
+      };
+      if (review) {
+        payload.quellseite = quellseite;
+        payload.galerie = galerie;
+      } else {
+        payload.ordner = ordner;
+      }
+
+      var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var slug = review ? {{ urlize $sourceGalleryTitle }} : (ordner || '').split('/').pop();
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = slug + (review ? '-pruefung.json' : '-auswahl.json');
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      var body = 'Hallo,%0D%0A%0D%0Aanbei meine Rueckmeldung zu "' + encodeURIComponent(titel) + '".%0D%0A%0D%0A(Bitte die soeben heruntergeladene Datei "' + slug + (review ? '-pruefung.json' : '-auswahl.json') + '" an diese E-Mail anhaengen)';
+      mailtoLink.href = 'mailto:info@sindlhausen.de?subject=' + encodeURIComponent(titel) + '&body=' + body;
+      note.classList.add('sh-tool-note--visible');
+    });
+
+    renumber();
+    updateCount();
+  })();
+  </script>
+{{ end }}
+</main>
+
+</body>
+</html>
