@@ -83,34 +83,10 @@ pageRef = "/chronik"
 weight = 20
 
 [[menu.main]]
-name = "Historische Karten"
-pageRef = "/chronik/von-oben/historische-karten"
+name = "vo obn"
+pageRef = "/chronik/von-oben"
 parent = "chronik"
 weight = 21
-
-[[menu.main]]
-name = "Historische Fotos"
-pageRef = "/chronik/von-oben/historische-fotos"
-parent = "chronik"
-weight = 22
-
-[[menu.main]]
-name = "Ballonfahrt Helmut"
-pageRef = "/chronik/von-oben/ballonfahrt-helmut"
-parent = "chronik"
-weight = 23
-
-[[menu.main]]
-name = "Ballonfahrt Christian"
-pageRef = "/chronik/von-oben/ballonfahrt-christian"
-parent = "chronik"
-weight = 24
-
-[[menu.main]]
-name = "Aus dem Flieger"
-pageRef = "/chronik/von-oben/aus-dem-flieger"
-parent = "chronik"
-weight = 25
 
 [[menu.main]]
 identifier = "kirch"
