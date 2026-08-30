@@ -554,3 +554,19 @@ body {
 .sh-carousel__nav--next .sh-carousel__nav-icon {
     transform: rotate(-90deg);
 }
+
+/* Bildunterschrift in der PhotoSwipe-Lightbox (siehe gallery-Shortcode:
+   data-pswp-caption je Bild, per JS in dieses Element geschrieben -
+   PhotoSwipe zeigt Captions nicht von Haus aus an). */
+.pswp__custom-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.95rem;
+    text-align: center;
+}

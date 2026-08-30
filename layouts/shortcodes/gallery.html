@@ -98,6 +98,7 @@
               href="{{ $large.RelPermalink }}"
               data-pswp-width="{{ $large.Width }}"
               data-pswp-height="{{ $large.Height }}"
+              data-pswp-caption="{{ $imgAlt }}"
               target="_blank"
               aria-label="{{ $imgAlt }} vergroessern">
               <picture>
@@ -133,6 +134,24 @@
     gallery: '#{{ $id }}',
     children: 'a',
     pswpModule: () => import('/vendor/photoswipe/photoswipe.esm.min.js'),
+  });
+  lightbox.on('uiRegister', function () {
+    lightbox.pswp.ui.registerElement({
+      name: 'custom-caption',
+      order: 9,
+      isButton: false,
+      appendTo: 'root',
+      onInit: (el, pswp) => {
+        el.className = 'pswp__custom-caption';
+        pswp.on('change', () => {
+          const caption = pswp.currSlide.data.element
+            ? pswp.currSlide.data.element.dataset.pswpCaption
+            : '';
+          el.textContent = caption || '';
+          el.style.display = caption ? 'block' : 'none';
+        });
+      },
+    });
   });
   lightbox.init();
 </script>
