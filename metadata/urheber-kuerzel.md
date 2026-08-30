@@ -14,7 +14,7 @@ Regel: Personen erhalten zwei Buchstaben, Institutionen/Firmen/unbekannte Urhebe
 | SM | Stephan Michelon |
 | RH | Regina |
 | HV | Helmut Vogt |
-| CP | Pausinger |
+| CP | Christian Pausinger (auf der org. Website nur als "Christian" bezeichnet) |
 | SO | Susi Guperding |
 | DG | Dominik |
 | KG | Klaus Gambos |
