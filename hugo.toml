@@ -106,9 +106,16 @@ parent = "kirch"
 weight = 33
 
 [[menu.main]]
+identifier = "oiwei-scho"
 name = "Oiwei scho"
 pageRef = "/oiwei-scho"
 weight = 40
+
+[[menu.main]]
+name = "Bittgang"
+pageRef = "/oiwei-scho/bittgang"
+parent = "oiwei-scho"
+weight = 41
 
 [[menu.main]]
 identifier = "wirtschaft"
