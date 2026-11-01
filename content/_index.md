@@ -19,11 +19,3 @@ Sindlhausen lebt nicht nur durch seine Geschichte, sondern vor allem durch die M
 
 Die Erinnerungen an Kindheit, Feste, Bräuche und gemeinsame Ereignisse prägen das Dorf bis heute.
 {{< /section >}}
-
-{{< section title="Willkommen in Sindlhausen" bg="light" >}}
-Sindlhausen ist ein kleiner Ort zwischen Schönau und Tuntenhausen mit einer über 1250-jährigen Geschichte. Auf diesen Seiten finden Sie Informationen zur Geschichte des Dorfes, zur Kirche, zu historischen Ereignissen sowie zahlreiche Fotografien.
-
-Die Inhalte dieser Website werden laufend erweitert und ergänzt. Viele historische Dokumente, Bilder und Erinnerungen wurden von Dorfbewohnern zur Verfügung gestellt.
-
-Wir freuen uns über weitere Informationen, Fotos und Hinweise zur Geschichte von Sindlhausen.
-{{< /section >}}
