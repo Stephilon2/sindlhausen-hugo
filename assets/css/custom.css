@@ -280,8 +280,16 @@ body {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    height: clamp(220px, 28vw, 480px);
+    /* Wie im Original: schmaler Streifen mit fester Hoehe (dort 261px,
+       mobil 314px) - ein hoeherer Ausschnitt zeigt zu viel dunklen Himmel. */
+    height: 261px;
     overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .sh-hero {
+        height: 314px;
+    }
 }
 
 .sh-hero picture,
@@ -291,20 +299,40 @@ body {
     height: 100%;
     margin: 0;
     object-fit: cover;
-    object-position: 50% 45%;
+    object-position: 51% 49%;
+}
+
+/* Heller Schleier ueber dem Bild (Original: 20% in der Seitenfarbe), macht
+   das Foto weicher und den dunkelgruenen Titel lesbar. */
+.sh-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(220, 229, 229, 0.2);
+    pointer-events: none;
 }
 
 .sh-hero__title {
     position: absolute;
-    top: 50%;
+    z-index: 1;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
     width: 100%;
     padding: 0 1.5rem;
     text-align: center;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65), 0 0 24px rgba(0, 0, 0, 0.4);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--sindlhausen-heading-text);
+    text-shadow: none;
+}
+
+@media (max-width: 640px) {
+    .sh-hero__title {
+        font-size: 1.9rem;
+    }
 }
 
 /* Blowfish reserviert unter dem fixierten Header 148px (88px Header + 60px
@@ -364,8 +392,14 @@ img.sindlhausen-footer-logo {
 
 .sh-section__media img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
+    /* Hochformat-Fotos nicht ueber die ganze Spalte aufziehen (wirkt sonst
+       erdrueckend) - wie im Original bleibt das Bild kompakt. */
+    max-height: 28rem;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 0.5rem;
 }
 
