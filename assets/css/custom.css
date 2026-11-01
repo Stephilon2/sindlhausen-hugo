@@ -316,7 +316,8 @@ div[class~="min-h-[148px]"] {
 
 /* Das Logo-JPG hat einen eigenen, vom Header abweichenden Gruenton in den
    Ecken - rund beschneiden, damit kein Quadrat sichtbar ist. */
-img.logo {
+img.logo,
+img.sindlhausen-footer-logo {
     border-radius: 50%;
 }
 
@@ -374,6 +375,31 @@ img.logo {
 
 .sh-section__content h2 {
     margin-top: 0;
+}
+
+/* Lesbare Zeilenlaenge (ca. 75 Zeichen): Abschnitte ohne Bild und
+   Galerie-Einleitungen waeren sonst bis zu 72rem breit. Gleiches gilt fuer
+   normalen Fliesstext in Seiten, die zusaetzlich Abschnitte/Galerien
+   enthalten (dort ist max-w-prose oben bewusst aufgehoben). */
+.sh-section__text,
+.article-content > :is(p, ul, ol, blockquote, h1, h2, h3, h4, h5) {
+    max-width: 46rem;
+}
+
+/* Seitentitel wie "Datenschutzerklaerung" sind in der Titel-Schriftgroesse
+   breiter als ein Handy-Bildschirm. */
+@media (max-width: 480px) {
+    main header h1 {
+        font-size: 1.65rem;
+        line-height: 2rem;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Lange URLs (z.B. in der Datenschutzerklaerung) duerfen umbrechen, statt
+   die Seite auf dem Handy zu verbreitern. */
+.article-content :is(p, li, a) {
+    overflow-wrap: anywhere;
 }
 
 .sh-button {
