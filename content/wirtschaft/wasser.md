@@ -20,6 +20,6 @@ Dias und Schriftverkehr aus der Gründungszeit des Wasserbeschaffungsverbands �
 {{< gallery title="Sanierung der Wasseranlage" bg="light" images="/images/wirtschaft/wasser/MG2_renovierung-01.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-02.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-03.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-04.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-05.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-06.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-07.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-08.JPG|Sanierung der Wasseranlage;/images/wirtschaft/wasser/MG2_renovierung-09.JPG|Sanierung der Wasseranlage" >}}
 {{< /gallery >}}
 
-{{< section title="Kanal & Schmutzwasser" image="/images/wirtschaft/wasser/SHC_kanaldeckel.JPG" alt="Kanaldeckel in Sindlhausen" bg="green" orientation="right" >}}
+{{< section title="Kanal & Schmutzwasser" image="/images/wirtschaft/wasser/SHC_kanaldeckel.JPG" alt="Waschechter Sindlhauser Kanaldeckel" bg="green" orientation="right" >}}
 Wo es Wasser gibt, gibt es auch Schmutzwasser — das unbedingt geklärt werden muss. 2004 wurde in Sindlhausen der Kanal gebaut und an die Kläranlage Tuntenhausen angeschlossen.
 {{< /section >}}

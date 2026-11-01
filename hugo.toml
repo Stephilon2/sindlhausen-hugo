@@ -101,16 +101,22 @@ parent = "kirch"
 weight = 31
 
 [[menu.main]]
+name = "Außenansicht"
+pageRef = "/kirch/aussenansicht"
+parent = "kirch"
+weight = 32
+
+[[menu.main]]
 name = "Innenansicht"
 pageRef = "/kirch/innenansicht"
 parent = "kirch"
-weight = 32
+weight = 33
 
 [[menu.main]]
 name = "Kreuzweg"
 pageRef = "/kirch/kreuzweg"
 parent = "kirch"
-weight = 33
+weight = 34
 
 [[menu.main]]
 identifier = "oiwei-scho"

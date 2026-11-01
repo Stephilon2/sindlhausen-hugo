@@ -24,5 +24,5 @@ Natürlich wünschten wir den Bewohnern auch an jedem Haus „Scheene Ostern“.
 
 Auf die Frage, seit wann diese Bräuche schon durchgeführt werden, bekam ich nur die Antwort: „Joaaaa, oiwei scho“. Das lassen wir so stehen und hoffen „bitte gar schee“, dass es diese Bräuche und eine ebenso schöne Kindheit in Sindlhausen für die Generationen nach uns auch noch weiterhin, oder eben „für heut und immerdar“ gibt!
 
-{{< gallery title="Bilder von damals" bg="light" images="/images/kinder/OG_kirtaschar_1940.jpg|Kirtaschar 1940;/images/kinder/OG_winter_1976.jpg|Winter 1976;/images/kinder/OG_fasching_1971.jpg|Fasching 1971;/images/kinder/OG_fasching_1975.jpg|Fasching 1975;/images/kinder/OG_kindheit_1978.jpg|Kindheit 1978" >}}
+{{< gallery title="Bilder von damals" bg="light" images="/images/kinder/OG_kirtaschar_1940.jpg|Kirtaschar 1940;/images/kinder/OG_winter_1976.jpg|Winter 1976;/images/kinder/OG_fasching_1971.jpg|Fasching 1971;/images/kinder/OG_fasching_1975.jpg|Fasching 1975;/images/kinder/OG_kindheit_1978.jpg|Kindheit 1978;/images/kinder/MG_kinder-im-schlamm.jpg|Kinder im Schlamm;/images/kinder/SM_kinder-im-heu.jpg|Kinder im Heu;/images/kinder/AG_traktor-mit-schlitten.jpg|Traktor mit Schlitten im Schnee;/images/kinder/SM_kinder-mit-koerbchen.jpg|Kinder mit Körbchen;/images/kinder/SM_kinder-auf-bank_2010.jpg|Sechs Kinder auf der Bank, 2010" >}}
 {{< /gallery >}}

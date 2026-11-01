@@ -3,7 +3,7 @@ title: "Kirch"
 description: "Kirche von Sindlhausen"
 ---
 
-{{< section title="Die Kirche von Sindlhausen" image="/images/kirche/aussen/OG_vorne-mit-laterne_2004.JPG" alt="Die Kirche von Sindlhausen von vorne" bg="light" orientation="left" >}}
+{{< section title="Die Kirche von Sindlhausen" image="/images/kirche/aussen/OG_vorne-mit-laterne_2004.JPG" alt="Die Kirche von Sindlhausen von vorne" bg="light" orientation="left" link="/kirch/aussenansicht/" linktext="Weitere Ansichten der Kirche" >}}
 In Sindlhausen (Sindilinhusir) steht die frühest bekannte Christopheruskirche Deutschlands. Diese wurde vom Kleriker Sindolo, dessen Vater Ruppert (Hroadperth), Mutter Hiltrude und Lehrer Wendo errichtet und mit viel Eigentum ausgestattet, steht in der **Urkunde vom 20. November 772** und vom Bischof Aribo eingeweiht und der Hauptkirche zu Freising überlassen. Die Barockisierung dürfte später erfolgt sein (sehr schöner barocker Altar). Die Kirche ist heute der hl. Margarethe (Figur ca. 80cm) geweiht. In der Kirche befindet sich noch die hl. Ursula, ein Kreuzweg und ein Votivbild.
 
 Der heutige Bau zeigt noch mittelalterlichen Bestand, wurde im Barock aber stark verändert.

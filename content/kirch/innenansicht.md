@@ -3,7 +3,7 @@ title: "Innenansicht"
 description: "Altar, Muttergottes und Kreuzweg in der Kirche Sindlhausen"
 ---
 
-{{< gallery title="Altar" bg="green" images="/images/kirche/altar/OG_altar-gesamt_2015.JPG|Der barocke Altar der Kirche Sindlhausen;/images/kirche/altar/OG_hl-margarethe_2015.JPG|Hl. Margarethe mit Krone und Drachen;/images/kirche/altar/OG_hl-ursula_2015.JPG|Hl. Ursula mit Krone, Buch und Palmzweig" >}}
+{{< gallery title="Altar" bg="green" images="/images/kirche/altar/OG_altar-gesamt_2015.JPG|Der barocke Altar der Kirche Sindlhausen;/images/kirche/altar/OG_hl-margarethe_2015.JPG|Hl. Margarethe mit Krone und Drachen;/images/kirche/altar/OG_hl-ursula_2015.JPG|Hl. Ursula mit Krone, Buch und Palmzweig;/images/kirche/innen/SHC_altar-mit-kreuzweg-wand.JPG|Der Altar mit den Kreuzwegbildern an der Wand" >}}
 Der Barockaltar ist wahrscheinlich 1902 vom Biberger Schreiner Stefan Weigl angefertigt und vom Aiblinger Maler Ludwig Osendorfer gefasst worden. Das Altarbild (um 1900) zeigt die hl. Familie und wurde von der Kunstanstalt H. Müller angekauft. Tatsächlich wurde der Altar immer wieder – aus stilistisch durchaus berechtigten Gründen – ins 17. Jahrhundert datiert.
 
 Es zeigen sich auch mehrere Fassungen, so dass nicht ganz klar ist, ob Osendorfer und Weigl nicht einen älteren Altar unbekannter Herkunft überarbeitet haben. In der Pfarrbeschreibung 1817 wird der Altar mit dem Bilde der hl. Margaretha beschrieben.
