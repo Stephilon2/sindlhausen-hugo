@@ -1,4 +1,8 @@
+# Beim Umzug auf www.sindlhausen.de hier 'https://www.sindlhausen.de/' eintragen
+# (damit Sitemap, robots.txt, Canonical- und Social-Links absolut werden).
+# Bis dahin bleibt '/', damit die Testseite auf sich selbst verlinkt.
 baseURL = '/'
+enableRobotsTXT = true
 defaultContentLanguage = 'de'
 disableLanguages = ['en']
 title = 'Sindlhausen'
