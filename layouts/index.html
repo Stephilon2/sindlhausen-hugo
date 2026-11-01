@@ -1,0 +1,11 @@
+{{/*
+  Startseite: nur der Inhalt aus content/_index.md (Panorama-Banner,
+  Willkommenstext, Teaser). Blowfish's Standard-Layout ("profile") setzt
+  sonst eine grosse, doppelte Ueberschrift "Sindlhausen" ueber das Banner.
+  Es werden bewusst nur Klassen verwendet, die der Theme-CSS bereits enthaelt.
+*/}}
+{{ define "main" }}
+  <article class="max-w-full prose dark:prose-invert flex flex-col items-center text-center">
+    <section class="w-full">{{ .Content }}</section>
+  </article>
+{{ end }}
