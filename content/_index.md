@@ -1,6 +1,7 @@
 ---
 title: "Dahoam"
 description: "Willkommen in Sindlhausen"
+aliases: ["/links"]
 ---
 
 {{< hero image="/images/dahoam/SHC_panorama-sonnenuntergang.jpg" alt="Sindlhausen seit 772" title="Sindlhausen seit 772" >}}

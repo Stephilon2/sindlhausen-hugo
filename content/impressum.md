@@ -1,9 +1,10 @@
 ---
 title: "Impressum"
 description: "Impressum"
+aliases: ["/kontakt"]
 ---
 
-## Angaben gemäß § 5 TMG
+## Angaben gemäß § 5 DDG
 
 Stephan Michelon\
 Sindlhausen\
