@@ -36,15 +36,32 @@ Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit
 
 ### GitHub Pages
 
-Wir hosten unsere Website bei GitHub Pages. Anbieter ist die GitHub, Inc., 88 Colorado Ave, Suite 300, Santa Monica, CA 90404, USA (nachfolgend „GitHub“).
+Wir hosten unsere Website bei GitHub Pages. Anbieter ist die GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA (nachfolgend „GitHub“). Für Nutzer in der EU ist zudem die GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Niederlande, tätig.
 
-Wenn Sie unsere Website besuchen, erfasst GitHub verschiedene Logfiles inklusive Ihrer IP-Adresse. Details entnehmen Sie der Datenschutzerklärung von GitHub: [https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement)
+Wenn Sie unsere Website besuchen, erfasst GitHub verschiedene Logfiles inklusive Ihrer IP-Adresse. Nach Angaben von GitHub wird die IP-Adresse von Besuchern aus Sicherheitsgründen protokolliert und gespeichert. Details entnehmen Sie der Datenschutzerklärung von GitHub: [https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement)
 
-Die Verwendung von GitHub Pages erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer zuverlässigen, kostengünstigen und stabilen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
+Die Verwendung von GitHub Pages erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer zuverlässigen, kostengünstigen und stabilen Darstellung unserer Website.
+**Datenübermittlung in die USA:** GitHub, Inc. hat seinen Sitz in den USA. Es lässt sich daher nicht ausschließen, dass die beim Websitebesuch erfassten Daten (insbesondere Ihre IP-Adresse) in die USA übermittelt und dort verarbeitet werden. Nach eigenen Angaben ist GitHub unter dem EU-US Data Privacy Framework zertifiziert, für das die Europäische Kommission mit Beschluss vom 10. Juli 2023 ein angemessenes Datenschutzniveau festgestellt hat. Darüber hinaus stützt sich GitHub nach eigenen Angaben allgemein auf die von der Europäischen Kommission veröffentlichten Standardvertragsklauseln (Art. 44 ff. DSGVO). Weitere Informationen finden Sie in der oben verlinkten Datenschutzerklärung von GitHub.
 
-**Datenübermittlung in die USA:** GitHub, Inc. hat seinen Sitz in den USA. Es lässt sich daher nicht ausschließen, dass die beim Websitebesuch erfassten Daten (insbesondere Ihre IP-Adresse) in die USA übermittelt und dort verarbeitet werden. ⚠️ *[Platzhalter – vor Freischaltung zu prüfen und zu ergänzen: aktueller Zertifizierungsstatus von GitHub, Inc. unter dem EU-US Data Privacy Framework bzw. die von GitHub verwendeten Standardvertragsklauseln (SCC) als Grundlage der Drittlandübermittlung, Art. 44 ff. DSGVO. Diese Angabe darf nicht ungeprüft übernommen werden.]*
+### Domain, Namensauflösung und E-Mail (IONOS)
 
-## 3. Allgemeine Hinweise und Pflichtinformationen
+Die Domain sindlhausen.de wird bei der IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, verwaltet. Beim Aufruf unserer Website wird die Domain über die Nameserver von IONOS aufgelöst; dabei werden technisch notwendige Verbindungsdaten verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer funktionsfähigen Erreichbarkeit der Website).
+
+Auch das E-Mail-Postfach unter der Adresse info@sindlhausen.de wird bei IONOS betrieben. E-Mails, die Sie an uns senden, werden daher auf den Servern von IONOS verarbeitet und gespeichert. Details entnehmen Sie der Datenschutzerklärung von IONOS: [https://www.ionos.de/datenschutzerklaerung](https://www.ionos.de/datenschutzerklaerung)
+
+<!-- TODO vor Freischaltung: Abschnitt IONOS nur belassen, solange Domain/DNS/E-Mail weiterhin bei IONOS liegen. -->
+
+## 3. Cookies, lokale Speicherung und externe Inhalte
+
+Diese Website setzt keine Cookies und verwendet keine Analyse- oder Tracking-Dienste. Es werden keine externen Inhalte wie Schriftarten, Skripte, Karten oder Videos von Drittanbietern nachgeladen; alle Schriftarten und Programmbestandteile werden vom eigenen Webspace ausgeliefert. Die Suchfunktion arbeitet vollständig in Ihrem Browser, Suchbegriffe werden nicht an uns übermittelt.
+
+Diese Website enthält Links zu anderen Websites. Für deren Inhalte und Datenschutz sind die jeweiligen Betreiber verantwortlich.
+
+## 4. Kontaktaufnahme per E-Mail
+
+Wenn Sie uns per E-Mail kontaktieren (zum Beispiel um Fotos, Sterbebilder oder Hinweise zur Ortsgeschichte zuzusenden), verarbeiten wir Ihre Angaben (E-Mail-Adresse, Inhalt der Nachricht, ggf. übersandte Dateien) ausschließlich zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, bei Anfragen im Zusammenhang mit einem Vertrag Art. 6 Abs. 1 lit. b DSGVO. Wir löschen Ihre Daten, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Möchten Sie, dass ein zugesandtes Foto veröffentlicht wird, geschieht dies nur mit Ihrer Zustimmung.
+
+## 5. Allgemeine Hinweise und Pflichtinformationen
 
 ### Datenschutz
 
@@ -86,7 +103,7 @@ WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, 
 
 ### Beschwerderecht bei der zuständigen Aufsichtsbehörde
 
-Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.
+Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe. Zuständige Aufsichtsbehörde ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.
 
 ### Recht auf Datenübertragbarkeit
 
