@@ -4,6 +4,9 @@ description: "Datenschutzerklärung"
 aliases: ["/datenschutzerklarung"]
 ---
 
+<!-- HINWEIS-ENTWURF: vor Freischaltung entfernen, sobald die Datenschutzerklärung geprüft und freigegeben ist. -->
+> **Hinweis:** Diese Datenschutzerklärung wird im Zuge des Umzugs dieser Website überarbeitet und kann sich noch ändern. Stand: November 2026.
+
 ## 1. Datenschutz auf einen Blick
 
 ### Allgemeine Hinweise
