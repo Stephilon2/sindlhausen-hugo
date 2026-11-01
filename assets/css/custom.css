@@ -422,7 +422,9 @@ img.sindlhausen-footer-logo {
     }
 }
 
-/* Zitat-Balken auf hellem Grund in der Seitenfarbe statt im Theme-Blau */
+/* Zitat-Balken auf hellem Grund in der Seitenfarbe statt im Theme-Blau
+   (auch im normalen Fliesstext einer Seite, z.B. Kind sein) */
+.article-content > blockquote,
 .sh-section--light blockquote {
     border-color: var(--sindlhausen-green-mid);
 }
